@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auto-École Desfeux - Offres permis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-mode="manuelle">
+    <header class="hero">
+      <div class="hero__inner">
+        <div class="hero__brand">
+          <div class="hero__logo-wrap">
+            <img
+              src="./images/desfeux_logo.png"
+              alt="Logo Auto-École Desfeux"
+              class="hero__logo-img"
+            />
+            <div class="hero__logo-fallback">AD</div>
+          </div>
+
+          <div class="hero__brand-text">
+            <!-- <p class="hero__eyebrow">Présentation interne des offres</p> -->
+            <h1><span class="h1-rouge">École</span> <span class="h1-orange">de Conduite</span> <span class="h1-vert">Desfeux</span></h1>
+            <p class="hero__text">
+              Consultation des formules par catégorie de permis et type de boîte.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero__controls">
+          <p class="hero__controls-label">Type de boîte</p>
+
+          <div class="transmission-switch" aria-label="Choix de la boîte de vitesse">
+            <button
+              class="transmission-switch__btn is-active"
+              type="button"
+              data-mode="manuelle"
+            >
+              Manuelle
+            </button>
+            <button
+              class="transmission-switch__btn"
+              type="button"
+              data-mode="automatique"
+            >
+              Automatique
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <!-- ========================================= -->
+      <!-- PERMIS B TRADITIONNEL -->
+      <!-- ========================================= -->
+      <section class="permit-section" id="permis-b">
+        <button
+          type="button"
+          class="permit-toggle"
+          aria-expanded="false"
+          aria-controls="content-permis-b"
+        >
+          <!-- <span class="permit-toggle__meta">Permis 1</span> -->
+          <span class="permit-toggle__title">Permis B traditionnel</span>
+          <span class="permit-toggle__icon">+</span>
+        </button>
+
+        <div class="permit-content" id="content-permis-b">
+          <div class="offers-grid">
+            <article class="offer-card offer-card--featured">
+              <!-- <div class="offer-card__badge">Sérénité</div> -->
+              <h3>Sérénité</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="1800 €"
+                data-price-automatique="1400 €"
+              >
+                1800 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>33 €</span>|Code en salle avec enseignant 6 mois + en ligne 3 mois : <span class='detail-price'>100 €</span>|Accompagnement à l'examen du code : <span class='detail-price'>40 €</span>|Redevance examen code : <span class='detail-price'>30 €</span>|Livret numérique : <span class='detail-price'>20 €</span>|Conduite : 30 heures x <span class='detail-price'>47 €</span>|Présentation à l'examen pratique : <span class='detail-price'>47 €</span>|Demande de fabrication du permis (ANTS) : <span class='detail-price'>50 €</span>|Heure supplémentaire si + de 30 heures : <span class='detail-price'>47 €</span>|Au-delà de 20 heures, règlement selon le réellement consommé|Tout compris, dans la limite d'une présentation aux examens"
+                data-details-automatique="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>40 €</span>|Code en salle avec enseignant + en ligne 3 mois : <span class='detail-price'>100 €</span>|Accompagnement à l'examen du code : <span class='detail-price'>40 €</span>|Redevance examen code : <span class='detail-price'>30 €</span>|Livret numérique : <span class='detail-price'>20 €</span>|Conduite : 20 heures x <span class='detail-price'>50 €</span>|Présentation à l'examen pratique : <span class='detail-price'>50 €</span>|Demande de fabrication du permis (ANTS) : <span class='detail-price'>50 €</span>|Au-delà des 20 heures, heure supplémentaire : <span class='detail-price'>50 €</span>|Tout compris, dans la limite d'une présentation à l'examen"
+              >
+                <li>Frais de gestion administrative y compris ANTS (AIPC) : <span class="detail-price">70 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">33 €</span></li>
+                <li>Code en salle avec enseignant 6 mois + en ligne 3 mois : <span class="detail-price">100 €</span></li>
+                <li>Accompagnement à l'examen du code : <span class="detail-price">40 €</span></li>
+                <li>Redevance examen code : <span class="detail-price">30 €</span></li>
+                <li>Livret numérique : <span class="detail-price">20 €</span></li>
+                <li>Conduite : 30 heures x <span class="detail-price">47 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">47 €</span></li>
+                <li>Demande de fabrication du permis (ANTS) : <span class="detail-price">50 €</span></li>
+                <li>Heure supplémentaire si + de 30 heures : <span class="detail-price">47 €</span></li>
+                <li>Au-delà de 20 heures, règlement selon le réellement consommé</li>
+                <li>Tout compris, dans la limite d'une présentation aux examens</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--primary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B SERENITE.pdf"
+                  data-pdf-automatique="PERMIS B boîte auto FORFAIT SERENITE.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <!-- <div class="offer-card__badge offer-card__badge--soft">Essentiel</div> -->
+              <h3>Essentiel</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="1206 €"
+                data-price-automatique="910 €"
+              >
+                1206 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>40 €</span>|Code en ligne 3 mois : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 20 heures x <span class='detail-price'>49 €</span>|Présentation à l'examen pratique : <span class='detail-price'>49 €</span>|Possibilité de suivre le code en salle avec enseignant : <span class='detail-price'>+70 €</span>|À votre charge : inscription examen du code|À votre charge : redevance d'État de <span class='detail-price'>30 €</span>|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>53 €</span>"
+                data-details-automatique="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>45 €</span>|Code en ligne 3 mois : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 13 heures x <span class='detail-price'>52 €</span>|Présentation à l'examen pratique : <span class='detail-price'>52 €</span>|Possibilité de suivre le code en salle avec enseignant : <span class='detail-price'>+70 €</span>|À votre charge : inscription examen du code|À votre charge : redevance due à l'État pour le passage du code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>56 €</span>"
+              >
+                <li>Frais de gestion administrative y compris ANTS (AIPC) : <span class="detail-price">70 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">40 €</span></li>
+                <li>Code en ligne 3 mois : <span class="detail-price">40 €</span></li>
+                <li>Livret numérique : <span class="detail-price">27 €</span></li>
+                <li>Conduite : 20 heures x <span class="detail-price">49 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">49 €</span></li>
+                <li>Possibilité de suivre le code en salle avec enseignant : <span class="detail-price">+70 €</span></li>
+                <li>À votre charge : inscription examen du code</li>
+                <li>À votre charge : redevance d'État de <span class="detail-price">30 €</span></li>
+                <li>À votre charge : déplacement jusqu'au centre d'examen</li>
+                <li>À votre charge : demande de fabrication du permis sur l'ANTS</li>
+                <li>À partir de la 21e heure : <span class="detail-price">53 €</span></li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B ESSENTIEL.pdf"
+                  data-pdf-automatique="PERMIS B boîte auto FORFAIT ESSENTIEL.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <!-- <div class="offer-card__badge offer-card__badge--soft">Basique</div> -->
+              <h3>Basique</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="1146 €"
+                data-price-automatique="850 €"
+              >
+                1146 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative hors ANTS : <span class='detail-price'>50 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 20 heures x <span class='detail-price'>49 €</span>|Présentation à l'examen pratique : <span class='detail-price'>49 €</span>|À votre charge : demande d'inscription sur l'ANTS|À votre charge : support pédagogique pour travailler le code|À votre charge : inscription à l'examen du code|À votre charge : redevance due à l'État pour le code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>53 €</span>"
+                data-details-automatique="Frais de gestion administrative hors ANTS : <span class='detail-price'>50 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>45 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 13 heures x <span class='detail-price'>52 €</span>|Présentation à l'examen pratique : <span class='detail-price'>52 €</span>|À votre charge : demande d'inscription sur l'ANTS|À votre charge : support pédagogique pour travailler le code|À votre charge : inscription à l'examen du code|À votre charge : redevance due à l'État pour le code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>56 €</span>"
+              >
+                <li>Frais de gestion administrative hors ANTS : <span class="detail-price">50 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">40 €</span></li>
+                <li>Livret numérique : <span class="detail-price">27 €</span></li>
+                <li>Conduite : 20 heures x <span class="detail-price">49 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">49 €</span></li>
+                <li>À votre charge : demande d'inscription sur l'ANTS</li>
+                <li>À votre charge : support pédagogique pour travailler le code</li>
+                <li>À votre charge : inscription à l'examen du code</li>
+                <li>À votre charge : redevance due à l'État pour le code</li>
+                <li>À votre charge : déplacement jusqu'au centre d'examen</li>
+                <li>À votre charge : demande de fabrication du permis sur l'ANTS</li>
+                <li>À partir de la 21e heure : <span class="detail-price">53 €</span></li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B BASIQUE.pdf"
+                  data-pdf-automatique="PERMIS B boîte auto FORFAIT BASIQUE.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- PERMIS B CS -->
+      <!-- ========================================= -->
+      <section class="permit-section" id="permis-b-cs">
+        <button
+          type="button"
+          class="permit-toggle"
+          aria-expanded="false"
+          aria-controls="content-permis-b-cs"
+        >
+          <!-- <span class="permit-toggle__meta">Permis 2</span> -->
+          <span class="permit-toggle__title">Permis B CS — conduite supervisée</span>
+          <span class="permit-toggle__icon">+</span>
+        </button>
+
+        <div class="permit-content" id="content-permis-b-cs">
+          <div class="offers-grid">
+            <article class="offer-card offer-card--featured">
+              <!-- <div class="offer-card__badge">Sérénité</div> -->
+              <h3>Sérénité</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="1890 €"
+                data-price-automatique="1500 €"
+              >
+                1890 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>33 €</span>|Code en salle avec enseignant + en ligne 3 mois : <span class='detail-price'>100 €</span>|Accompagnement à l'examen du code : <span class='detail-price'>40 €</span>|Redevance examen code : <span class='detail-price'>30 €</span>|Livret numérique : <span class='detail-price'>20 €</span>|Conduite : 30 heures x <span class='detail-price'>47 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>90 €</span>|Présentation à l'examen pratique : <span class='detail-price'>47 €</span>|Demande de fabrication du permis (ANTS) : <span class='detail-price'>50 €</span>|Heure supplémentaire si + de 30 heures : <span class='detail-price'>47 €</span>|Au-delà de 20 heures, règlement selon le réellement consommé|Tout compris, dans la limite d'une présentation à l'examen"
+                data-details-automatique="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>40 €</span>|Code en salle avec enseignant + en ligne 3 mois : <span class='detail-price'>100 €</span>|Accompagnement à l'examen du code : <span class='detail-price'>40 €</span>|Redevance examen code : <span class='detail-price'>30 €</span>|Livret numérique : <span class='detail-price'>20 €</span>|Conduite : 20 heures x <span class='detail-price'>50 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>100 €</span>|Présentation à l'examen pratique : <span class='detail-price'>50 €</span>|Demande de fabrication du permis (ANTS) : <span class='detail-price'>50 €</span>|Heure supplémentaire : <span class='detail-price'>50 €</span>|Tout compris, dans la limite d'une présentation à l'examen"
+              >
+                <li>Frais de gestion administrative y compris ANTS (AIPC) : <span class="detail-price">70 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">33 €</span></li>
+                <li>Code en salle avec enseignant + en ligne 3 mois : <span class="detail-price">100 €</span></li>
+                <li>Accompagnement à l'examen du code : <span class="detail-price">40 €</span></li>
+                <li>Redevance examen code : <span class="detail-price">30 €</span></li>
+                <li>Livret numérique : <span class="detail-price">20 €</span></li>
+                <li>Conduite : 30 heures x <span class="detail-price">47 €</span></li>
+                <li>Rendez-vous préalable avec accompagnateur 2 heures : <span class="detail-price">90 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">47 €</span></li>
+                <li>Demande de fabrication du permis (ANTS) : <span class="detail-price">50 €</span></li>
+                <li>Heure supplémentaire si + de 30 heures : <span class="detail-price">47 €</span></li>
+                <li>Au-delà de 20 heures, règlement selon le réellement consommé</li>
+                <li>Tout compris, dans la limite d'une présentation à l'examen</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--primary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B CS SERENITE.pdf"
+                  data-pdf-automatique="PERMIS B CS boîte auto FORFAIT SERENITE.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <!-- <div class="offer-card__badge offer-card__badge--soft">Essentiel</div> -->
+              <h3>Essentiel</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="1304 €"
+                data-price-automatique="1014 €"
+              >
+                1304 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>40 €</span>|Code en ligne 3 mois : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 20 heures x <span class='detail-price'>49 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>98 €</span>|Présentation à l'examen pratique : <span class='detail-price'>49 €</span>|Possibilité de suivre le code en salle avec enseignant : <span class='detail-price'>+70 €</span>|À votre charge : inscription examen du code|À votre charge : redevance due à l'État pour le passage du code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>53 €</span>"
+                data-details-automatique="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>45 €</span>|Code en ligne 3 mois : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 13 heures x <span class='detail-price'>52 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>104 €</span>|Présentation à l'examen pratique : <span class='detail-price'>52 €</span>|Possibilité de suivre le code en salle avec enseignant : <span class='detail-price'>+70 €</span>|À votre charge : inscription examen du code|À votre charge : redevance due à l'État pour le passage du code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>56 €</span>"
+              >
+                <li>Frais de gestion administrative y compris ANTS (AIPC) : <span class="detail-price">70 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">40 €</span></li>
+                <li>Code en ligne 3 mois : <span class="detail-price">40 €</span></li>
+                <li>Livret numérique : <span class="detail-price">27 €</span></li>
+                <li>Conduite : 20 heures x <span class="detail-price">49 €</span></li>
+                <li>Rendez-vous préalable avec accompagnateur 2 heures : <span class="detail-price">98 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">49 €</span></li>
+                <li>Possibilité de suivre le code en salle avec enseignant : <span class="detail-price">+70 €</span></li>
+                <li>À votre charge : inscription examen du code</li>
+                <li>À votre charge : redevance due à l'État pour le passage du code</li>
+                <li>À votre charge : déplacement jusqu'au centre d'examen</li>
+                <li>À votre charge : demande de fabrication du permis sur l'ANTS</li>
+                <li>À partir de la 21e heure : <span class="detail-price">53 €</span></li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B CS ESSENTIEL.pdf"
+                  data-pdf-automatique="PERMIS B CS boîte auto FORFAIT ESSENTIEL.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <!-- <div class="offer-card__badge offer-card__badge--soft">Basique</div> -->
+              <h3>Basique</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="1244 €"
+                data-price-automatique="954 €"
+              >
+                1244 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative hors ANTS : <span class='detail-price'>50 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 20 heures x <span class='detail-price'>49 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>98 €</span>|Présentation à l'examen pratique : <span class='detail-price'>49 €</span>|À votre charge : demande d'inscription sur l'ANTS|À votre charge : support pédagogique pour travailler le code|À votre charge : inscription à l'examen du code|À votre charge : redevance due à l'État pour le code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>53 €</span>"
+                data-details-automatique="Frais de gestion administrative hors ANTS : <span class='detail-price'>50 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>45 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 13 heures x <span class='detail-price'>52 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>104 €</span>|Présentation à l'examen pratique : <span class='detail-price'>52 €</span>|À votre charge : demande d'inscription sur l'ANTS|À votre charge : support pédagogique pour travailler le code|À votre charge : inscription à l'examen du code|À votre charge : redevance due à l'État pour le code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>56 €</span>"
+              >
+                <li>Frais de gestion administrative hors ANTS : <span class="detail-price">50 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">40 €</span></li>
+                <li>Livret numérique : <span class="detail-price">27 €</span></li>
+                <li>Conduite : 20 heures x <span class="detail-price">49 €</span></li>
+                <li>Rendez-vous préalable avec accompagnateur 2 heures : <span class="detail-price">98 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">49 €</span></li>
+                <li>À votre charge : demande d'inscription sur l'ANTS</li>
+                <li>À votre charge : support pédagogique pour travailler le code</li>
+                <li>À votre charge : inscription à l'examen du code</li>
+                <li>À votre charge : redevance due à l'État pour le code</li>
+                <li>À votre charge : déplacement jusqu'au centre d'examen</li>
+                <li>À votre charge : demande de fabrication du permis sur l'ANTS</li>
+                <li>À partir de la 21e heure : <span class="detail-price">53 €</span></li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B CS BASIQUE.pdf"
+                  data-pdf-automatique="PERMIS B CS boîte auto FORFAIT BASIQUE.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- PERMIS B AAC -->
+      <!-- ========================================= -->
+      <section class="permit-section" id="permis-b-aac">
+        <button
+          type="button"
+          class="permit-toggle"
+          aria-expanded="false"
+          aria-controls="content-permis-b-aac"
+        >
+          <!-- <span class="permit-toggle__meta">Permis 3</span> -->
+          <span class="permit-toggle__title">Permis B AAC — conduite accompagnée</span>
+          <span class="permit-toggle__icon">+</span>
+        </button>
+
+        <div class="permit-content" id="content-permis-b-aac">
+          <div class="offers-grid">
+            <article class="offer-card offer-card--featured">
+              <!-- <div class="offer-card__badge">Sérénité</div> -->
+              <h3>Sérénité</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="2082 €"
+                data-price-automatique="1705 €"
+              >
+                2082 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>33 €</span>|Code en salle avec enseignant + en ligne 3 mois : <span class='detail-price'>100 €</span>|Accompagnement à l'examen du code : <span class='detail-price'>40 €</span>|Redevance examen code : <span class='detail-price'>30 €</span>|Livret numérique : <span class='detail-price'>20 €</span>|Conduite : 30 heures x <span class='detail-price'>47 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>94 €</span>|2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class='detail-price'>94 €</span>|2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class='detail-price'>94 €</span>|Présentation à l'examen pratique : <span class='detail-price'>47 €</span>|Demande de fabrication du permis (ANTS) : <span class='detail-price'>50 €</span>|Heure supplémentaire si + de 30 heures : <span class='detail-price'>47 €</span>|Au-delà de 20 heures, règlement selon le réellement consommé|Tout compris, dans la limite d'une présentation à l'examen"
+                data-details-automatique="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>45 €</span>|Code en salle avec enseignant + en ligne 3 mois : <span class='detail-price'>100 €</span>|Accompagnement à l'examen du code : <span class='detail-price'>40 €</span>|Redevance examen code : <span class='detail-price'>30 €</span>|Livret numérique : <span class='detail-price'>20 €</span>|Conduite : 20 heures x <span class='detail-price'>50 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>100 €</span>|2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class='detail-price'>100 €</span>|2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class='detail-price'>100 €</span>|Présentation à l'examen pratique : <span class='detail-price'>50 €</span>|Demande de fabrication du permis (ANTS) : <span class='detail-price'>50 €</span>|Heure supplémentaire : <span class='detail-price'>50 €</span>|Tout compris, dans la limite d'une présentation à l'examen"
+              >
+                <li>Frais de gestion administrative y compris ANTS (AIPC) : <span class="detail-price">70 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">33 €</span></li>
+                <li>Code en salle avec enseignant + en ligne 3 mois : <span class="detail-price">100 €</span></li>
+                <li>Accompagnement à l'examen du code : <span class="detail-price">40 €</span></li>
+                <li>Redevance examen code : <span class="detail-price">30 €</span></li>
+                <li>Livret numérique : <span class="detail-price">20 €</span></li>
+                <li>Conduite : 30 heures x <span class="detail-price">47 €</span></li>
+                <li>Rendez-vous préalable avec accompagnateur 2 heures : <span class="detail-price">94 €</span></li>
+                <li>2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class="detail-price">94 €</span></li>
+                <li>2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class="detail-price">94 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">47 €</span></li>
+                <li>Demande de fabrication du permis (ANTS) : <span class="detail-price">50 €</span></li>
+                <li>Heure supplémentaire si + de 30 heures : <span class="detail-price">47 €</span></li>
+                <li>Au-delà de 20 heures, règlement selon le réellement consommé</li>
+                <li>Tout compris, dans la limite d'une présentation à l'examen</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--primary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B AAC SERENITE.pdf"
+                  data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT SERENITE.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <!-- <div class="offer-card__badge offer-card__badge--soft">Essentiel</div> -->
+              <h3>Essentiel</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="1500 €"
+                data-price-automatique="1222 €"
+              >
+                1500 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>40 €</span>|Code en ligne 3 mois : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 20 heures x <span class='detail-price'>49 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>98 €</span>|2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class='detail-price'>98 €</span>|2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class='detail-price'>98 €</span>|Présentation à l'examen pratique : <span class='detail-price'>49 €</span>|Possibilité de suivre le code en salle avec enseignant : <span class='detail-price'>+70 €</span>|À votre charge : inscription examen du code|À votre charge : redevance due à l'État pour le code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>53 €</span>"
+                data-details-automatique="Frais de gestion administrative y compris ANTS (AIPC) : <span class='detail-price'>70 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>45 €</span>|Code en ligne 3 mois : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 13 heures x <span class='detail-price'>52 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>104 €</span>|2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class='detail-price'>104 €</span>|2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class='detail-price'>104 €</span>|Présentation à l'examen pratique : <span class='detail-price'>52 €</span>|Possibilité de suivre le code en salle avec enseignant : <span class='detail-price'>+70 €</span>|À votre charge : inscription examen du code|À votre charge : redevance due à l'État pour le code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|Tarif en vigueur à partir de la 21e heure"
+              >
+                <li>Frais de gestion administrative y compris ANTS (AIPC) : <span class="detail-price">70 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">40 €</span></li>
+                <li>Code en ligne 3 mois : <span class="detail-price">40 €</span></li>
+                <li>Livret numérique : <span class="detail-price">27 €</span></li>
+                <li>Conduite : 20 heures x <span class="detail-price">49 €</span></li>
+                <li>Rendez-vous préalable avec accompagnateur 2 heures : <span class="detail-price">98 €</span></li>
+                <li>2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class="detail-price">98 €</span></li>
+                <li>2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class="detail-price">98 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">49 €</span></li>
+                <li>Possibilité de suivre le code en salle avec enseignant : <span class="detail-price">+70 €</span></li>
+                <li>À votre charge : inscription examen du code</li>
+                <li>À votre charge : redevance due à l'État pour le code</li>
+                <li>À votre charge : déplacement jusqu'au centre d'examen</li>
+                <li>À votre charge : demande de fabrication du permis sur l'ANTS</li>
+                <li>À partir de la 21e heure : <span class="detail-price">53 €</span></li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B AAC ESSENTIEL.pdf"
+                  data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT ESSENTIEL.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <!-- <div class="offer-card__badge offer-card__badge--soft">Basique</div> -->
+              <h3>Basique</h3>
+              <p
+                class="offer-card__price"
+                data-price-manuelle="1440 €"
+                data-price-automatique="1162 €"
+              >
+                1440 €
+              </p>
+
+              <ul
+                class="offer-card__list js-details-list"
+                data-details-manuelle="Frais de gestion administrative hors ANTS : <span class='detail-price'>50 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>40 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 20 heures x <span class='detail-price'>49 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>98 €</span>|2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class='detail-price'>98 €</span>|2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class='detail-price'>98 €</span>|Présentation à l'examen pratique : <span class='detail-price'>49 €</span>|À votre charge : demande d'inscription sur l'ANTS|À votre charge : support pédagogique pour travailler le code|À votre charge : inscription à l'examen du code|À votre charge : redevance due à l'État pour le code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>53 €</span>"
+                data-details-automatique="Frais de gestion administrative hors ANTS : <span class='detail-price'>50 €</span>|Évaluation initiale (1 h) : <span class='detail-price'>45 €</span>|Livret numérique : <span class='detail-price'>27 €</span>|Conduite : 13 heures x <span class='detail-price'>52 €</span>|Rendez-vous préalable avec accompagnateur 2 heures : <span class='detail-price'>104 €</span>|2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class='detail-price'>104 €</span>|2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class='detail-price'>104 €</span>|Présentation à l'examen pratique : <span class='detail-price'>52 €</span>|À votre charge : demande d'inscription sur l'ANTS|À votre charge : support pédagogique pour travailler le code|À votre charge : inscription à l'examen du code|À votre charge : redevance due à l'État pour le code|À votre charge : déplacement jusqu'au centre d'examen|À votre charge : demande de fabrication du permis sur l'ANTS|À partir de la 21e heure : <span class='detail-price'>56 €</span>"
+              >
+                <li>Frais de gestion administrative hors ANTS : <span class="detail-price">50 €</span></li>
+                <li>Évaluation initiale (1 h) : <span class="detail-price">40 €</span></li>
+                <li>Livret numérique : <span class="detail-price">27 €</span></li>
+                <li>Conduite : 20 heures x <span class="detail-price">49 €</span></li>
+                <li>Rendez-vous préalable avec accompagnateur 2 heures : <span class="detail-price">98 €</span></li>
+                <li>2 rendez-vous pédagogiques pratiques 2 x 1 heure : <span class="detail-price">98 €</span></li>
+                <li>2 rendez-vous pédagogiques théoriques 2 x 2 heures : <span class="detail-price">98 €</span></li>
+                <li>Présentation à l'examen pratique : <span class="detail-price">49 €</span></li>
+                <li>À votre charge : demande d'inscription sur l'ANTS</li>
+                <li>À votre charge : support pédagogique pour travailler le code</li>
+                <li>À votre charge : inscription à l'examen du code</li>
+                <li>À votre charge : redevance due à l'État pour le code</li>
+                <li>À votre charge : déplacement jusqu'au centre d'examen</li>
+                <li>À votre charge : demande de fabrication du permis sur l'ANTS</li>
+                <li>À partir de la 21e heure : <span class="detail-price">53 €</span></li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-print-pdf"
+                  data-pdf-manuelle="FORFAIT PERMIS B AAC BASIQUE.pdf"
+                  data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT BASIQUE.pdf"
+                >
+                  Imprimer le PDF
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="other-permits">
+        <h2>Autres permis proposés</h2>
+        <ul class="other-permits__list">
+          <li>Permis AM</li>
+          <li>Permis A1</li>
+          <li>Permis A2</li>
+          <li>Permis B96</li>
+          <li>Permis BE</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
