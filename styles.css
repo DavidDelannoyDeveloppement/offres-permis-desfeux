@@ -7,6 +7,7 @@ html {
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(180deg, #eae8ff 0%, #ffebe8 100%);
