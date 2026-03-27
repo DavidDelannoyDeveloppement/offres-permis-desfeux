@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const summaryElements = document.querySelectorAll(".js-summary");
   const pdfButtons = document.querySelectorAll(".js-print-pdf");
   const permitToggles = document.querySelectorAll(".permit-toggle");
+  const docsToggleButtons = document.querySelectorAll(".js-toggle-docs");
 
   let currentMode = body.dataset.mode || "manuelle";
 
@@ -69,20 +70,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function getPdfFileName(button) {
+    const hasManual = !!button.dataset.pdfManuelle;
+    const hasAuto = !!button.dataset.pdfAutomatique;
+    const hasSingle = !!button.dataset.pdf;
+
+    if (hasManual || hasAuto) {
+      return currentMode === "automatique"
+        ? button.dataset.pdfAutomatique
+        : button.dataset.pdfManuelle;
+    }
+
+    if (hasSingle) {
+      return button.dataset.pdf;
+    }
+
+    return "";
+  }
+
   function updatePdfButtons() {
-    const key = modeKey();
-
     pdfButtons.forEach((button) => {
-      const fileName =
-        key === "automatique"
-          ? button.dataset.pdfAutomatique
-          : button.dataset.pdfManuelle;
-
+      const fileName = getPdfFileName(button);
       const available = fileName && fileName.trim() !== "";
 
       button.disabled = !available;
       button.classList.toggle("is-disabled", !available);
-      button.textContent = available ? "Imprimer le PDF" : "PDF indisponible";
     });
   }
 
@@ -107,19 +119,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
   pdfButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const key = modeKey();
-      const fileName =
-        key === "automatique"
-          ? button.dataset.pdfAutomatique
-          : button.dataset.pdfManuelle;
+      const fileName = getPdfFileName(button);
 
       if (!fileName || fileName.trim() === "") {
-        alert("Aucun PDF disponible pour cette formule.");
+        alert("Aucun document disponible pour cette formule.");
         return;
       }
 
       const pdfUrl = `./pdf/${fileName}`;
       window.open(pdfUrl, "_blank");
+    });
+  });
+
+  docsToggleButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const targetId = button.getAttribute("aria-controls");
+      const docsBlock = document.getElementById(targetId);
+      if (!docsBlock) return;
+
+      const isOpen = docsBlock.classList.contains("is-open");
+
+      // ferme les autres listes de documents de la même page
+      document.querySelectorAll(".offer-docs").forEach((block) => {
+        if (block !== docsBlock) {
+          block.classList.remove("is-open");
+          block.style.display = "none";
+        }
+      });
+
+      document.querySelectorAll(".js-toggle-docs").forEach((otherButton) => {
+        if (otherButton !== button) {
+          otherButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      if (isOpen) {
+        docsBlock.classList.remove("is-open");
+        docsBlock.style.display = "none";
+        button.setAttribute("aria-expanded", "false");
+      } else {
+        docsBlock.classList.add("is-open");
+        docsBlock.style.display = "grid";
+        button.setAttribute("aria-expanded", "true");
+      }
     });
   });
 
@@ -146,6 +191,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (icon) icon.textContent = "+";
       });
 
+      // ferme toutes les listes de docs quand on change de section
+      document.querySelectorAll(".offer-docs").forEach((block) => {
+        block.classList.remove("is-open");
+        block.style.display = "none";
+      });
+
+      document.querySelectorAll(".js-toggle-docs").forEach((btn) => {
+        btn.setAttribute("aria-expanded", "false");
+      });
+
       if (!isOpen) {
         toggle.classList.add("is-open");
         toggle.setAttribute("aria-expanded", "true");
@@ -155,6 +210,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (icon) icon.textContent = "−";
       }
     });
+  });
+
+  // état initial propre
+  document.querySelectorAll(".offer-docs").forEach((block) => {
+    block.classList.remove("is-open");
+    block.style.display = "none";
+  });
+
+  document.querySelectorAll(".js-toggle-docs").forEach((btn) => {
+    btn.setAttribute("aria-expanded", "false");
   });
 
   refreshUI();

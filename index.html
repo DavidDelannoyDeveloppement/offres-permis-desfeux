@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auto-École Desfeux - Offres permis</title>
-    <link rel="icon" type="image/png" href="./images/favicon_desfeux.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="./images/favicon_desfeux.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-mode="manuelle">
@@ -25,8 +28,11 @@
           </div>
 
           <div class="hero__brand-text">
-            <!-- <p class="hero__eyebrow">Présentation interne des offres</p> -->
-            <h1><span class="h1-rouge">École</span> <span class="h1-orange">de Conduite</span> <span class="h1-vert">Desfeux</span></h1>
+            <h1>
+              <span class="h1-rouge">École</span>
+              <span class="h1-orange">de Conduite</span>
+              <span class="h1-vert">Desfeux</span>
+            </h1>
             <p class="hero__text">
               Consultation des formules par catégorie de permis et type de boîte.
             </p>
@@ -67,7 +73,6 @@
           aria-expanded="false"
           aria-controls="content-permis-b"
         >
-          <!-- <span class="permit-toggle__meta">Permis 1</span> -->
           <span class="permit-toggle__title">Permis B traditionnel</span>
           <span class="permit-toggle__icon">+</span>
         </button>
@@ -75,7 +80,6 @@
         <div class="permit-content" id="content-permis-b">
           <div class="offers-grid">
             <article class="offer-card offer-card--featured">
-              <!-- <div class="offer-card__badge">Sérénité</div> -->
               <h3>Sérénité</h3>
               <p
                 class="offer-card__price"
@@ -107,17 +111,49 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--primary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B SERENITE.pdf"
-                  data-pdf-automatique="PERMIS B boîte auto FORFAIT SERENITE.pdf"
+                  class="btn btn--primary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-serenite"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-serenite">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B SERENITE.pdf"
+                    data-pdf-automatique="PERMIS B boîte auto FORFAIT SERENITE.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
 
             <article class="offer-card">
-              <!-- <div class="offer-card__badge offer-card__badge--soft">Essentiel</div> -->
               <h3>Essentiel</h3>
               <p
                 class="offer-card__price"
@@ -149,17 +185,49 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--secondary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B ESSENTIEL.pdf"
-                  data-pdf-automatique="PERMIS B boîte auto FORFAIT ESSENTIEL.pdf"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-essentiel"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-essentiel">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B ESSENTIEL.pdf"
+                    data-pdf-automatique="PERMIS B boîte auto FORFAIT ESSENTIEL.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
 
             <article class="offer-card">
-              <!-- <div class="offer-card__badge offer-card__badge--soft">Basique</div> -->
               <h3>Basique</h3>
               <p
                 class="offer-card__price"
@@ -191,12 +259,45 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--secondary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B BASIQUE.pdf"
-                  data-pdf-automatique="PERMIS B boîte auto FORFAIT BASIQUE.pdf"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-basique"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-basique">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B BASIQUE.pdf"
+                    data-pdf-automatique="PERMIS B boîte auto FORFAIT BASIQUE.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
           </div>
@@ -213,7 +314,6 @@
           aria-expanded="false"
           aria-controls="content-permis-b-cs"
         >
-          <!-- <span class="permit-toggle__meta">Permis 2</span> -->
           <span class="permit-toggle__title">Permis B CS — conduite supervisée</span>
           <span class="permit-toggle__icon">+</span>
         </button>
@@ -221,7 +321,6 @@
         <div class="permit-content" id="content-permis-b-cs">
           <div class="offers-grid">
             <article class="offer-card offer-card--featured">
-              <!-- <div class="offer-card__badge">Sérénité</div> -->
               <h3>Sérénité</h3>
               <p
                 class="offer-card__price"
@@ -254,17 +353,49 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--primary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B CS SERENITE.pdf"
-                  data-pdf-automatique="PERMIS B CS boîte auto FORFAIT SERENITE.pdf"
+                  class="btn btn--primary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-cs-serenite"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-cs-serenite">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B CS SERENITE.pdf"
+                    data-pdf-automatique="PERMIS B CS boîte auto FORFAIT SERENITE.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
 
             <article class="offer-card">
-              <!-- <div class="offer-card__badge offer-card__badge--soft">Essentiel</div> -->
               <h3>Essentiel</h3>
               <p
                 class="offer-card__price"
@@ -297,17 +428,49 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--secondary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B CS ESSENTIEL.pdf"
-                  data-pdf-automatique="PERMIS B CS boîte auto FORFAIT ESSENTIEL.pdf"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-cs-essentiel"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-cs-essentiel">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B CS ESSENTIEL.pdf"
+                    data-pdf-automatique="PERMIS B CS boîte auto FORFAIT ESSENTIEL.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
 
             <article class="offer-card">
-              <!-- <div class="offer-card__badge offer-card__badge--soft">Basique</div> -->
               <h3>Basique</h3>
               <p
                 class="offer-card__price"
@@ -340,12 +503,45 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--secondary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B CS BASIQUE.pdf"
-                  data-pdf-automatique="PERMIS B CS boîte auto FORFAIT BASIQUE.pdf"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-cs-basique"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-cs-basique">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B CS BASIQUE.pdf"
+                    data-pdf-automatique="PERMIS B CS boîte auto FORFAIT BASIQUE.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
           </div>
@@ -362,7 +558,6 @@
           aria-expanded="false"
           aria-controls="content-permis-b-aac"
         >
-          <!-- <span class="permit-toggle__meta">Permis 3</span> -->
           <span class="permit-toggle__title">Permis B AAC — conduite accompagnée</span>
           <span class="permit-toggle__icon">+</span>
         </button>
@@ -370,7 +565,6 @@
         <div class="permit-content" id="content-permis-b-aac">
           <div class="offers-grid">
             <article class="offer-card offer-card--featured">
-              <!-- <div class="offer-card__badge">Sérénité</div> -->
               <h3>Sérénité</h3>
               <p
                 class="offer-card__price"
@@ -405,17 +599,49 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--primary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B AAC SERENITE.pdf"
-                  data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT SERENITE.pdf"
+                  class="btn btn--primary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-aac-serenite"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-aac-serenite" >
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B AAC SERENITE.pdf"
+                    data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT SERENITE.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
 
             <article class="offer-card">
-              <!-- <div class="offer-card__badge offer-card__badge--soft">Essentiel</div> -->
               <h3>Essentiel</h3>
               <p
                 class="offer-card__price"
@@ -450,17 +676,49 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--secondary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B AAC ESSENTIEL.pdf"
-                  data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT ESSENTIEL.pdf"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-aac-essentiel"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-aac-essentiel">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B AAC ESSENTIEL.pdf"
+                    data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT ESSENTIEL.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
 
             <article class="offer-card">
-              <!-- <div class="offer-card__badge offer-card__badge--soft">Basique</div> -->
               <h3>Basique</h3>
               <p
                 class="offer-card__price"
@@ -495,27 +753,323 @@
               <div class="offer-card__actions">
                 <button
                   type="button"
-                  class="btn btn--secondary js-print-pdf"
-                  data-pdf-manuelle="FORFAIT PERMIS B AAC BASIQUE.pdf"
-                  data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT BASIQUE.pdf"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-permis-b-aac-basique"
                 >
-                  Imprimer le PDF
+                  Imprimer les documents
                 </button>
+
+                <div class="offer-docs" id="docs-permis-b-aac-basique">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf-manuelle="FORFAIT PERMIS B AAC BASIQUE.pdf"
+                    data-pdf-automatique="PERMIS B boîte auto AAC FORFAIT BASIQUE.pdf"
+                    data-label="Offre"
+                  >
+                    Offre
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MAJEUR.pdf"
+                  >
+                    Mandat majeur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="MANDAT_MINEUR.pdf"
+                  >
+                    Mandat mineur
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="other-permits">
-        <h2>Autres permis proposés</h2>
-        <ul class="other-permits__list">
-          <li>Permis AM</li>
-          <li>Permis A1</li>
-          <li>Permis A2</li>
-          <li>Permis B96</li>
-          <li>Permis BE</li>
-        </ul>
+      <!-- ========================================= -->
+      <!-- PERMIS AM / A1 / A2 -->
+      <!-- ========================================= -->
+      <section class="permit-section" id="permis-moto-legers">
+        <button
+          type="button"
+          class="permit-toggle"
+          aria-expanded="false"
+          aria-controls="content-permis-moto-legers"
+        >
+          <span class="permit-toggle__title">Permis AM (Cyclomoteur), A1 et A2</span>
+          <span class="permit-toggle__icon">+</span>
+        </button>
+
+        <div class="permit-content" id="content-permis-moto-legers">
+          <div class="offers-grid">
+            <article class="offer-card offer-card--featured">
+              <h3>AM (Cyclomoteur)</h3>
+              <p class="offer-card__price">300 €</p>
+
+              <ul class="offer-card__list">
+                <li>La formation comprend 2 séances de 4h</li>
+                <li>Le scooter est fourni durant la formation</li>
+                <li>Le casque et les gants sont à fournir (homologués et validés par le formateur)</li>
+                <li>L'élève doit assister à 5h de code en présence du formateur</li>
+                <li>Un parent doit être présent au début de la première session et à la fin de la seconde</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--primary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-am-cyclo"
+                >
+                  Imprimer les documents
+                </button>
+
+                <div class="offer-docs" id="docs-am-cyclo">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="AM_CYCLOMOTEUR_CONTRAT.pdf"
+                  >
+                    Contrat
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="AM_CYCLOMOTEUR_AUTORISATION_PARENTALE.pdf"
+                  >
+                    Autorisation parentale
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="FICHE_RENSEIGNEMENTS.pdf"
+                  >
+                    Fiche de renseignements
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <h3>A1</h3>
+              <p class="offer-card__price">À compléter</p>
+
+              <ul class="offer-card__list">
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-a1"
+                >
+                  Imprimer les documents
+                </button>
+
+                <div class="offer-docs" id="docs-a1">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="PERMIS_A1.pdf"
+                  >
+                    Offre
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <h3>A2</h3>
+              <p class="offer-card__price">À compléter</p>
+
+              <ul class="offer-card__list">
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-a2"
+                >
+                  Imprimer les documents
+                </button>
+
+                <div class="offer-docs" id="docs-a2">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="PERMIS_A2.pdf"
+                  >
+                    Offre
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- PERMIS AM QUADRICYCLE / B96 / BE -->
+      <!-- ========================================= -->
+      <section class="permit-section" id="permis-remorque-et-quadricycle">
+        <button
+          type="button"
+          class="permit-toggle"
+          aria-expanded="false"
+          aria-controls="content-permis-remorque-et-quadricycle"
+        >
+          <span class="permit-toggle__title">Permis AM (Quadricycle), B96 et BE</span>
+          <span class="permit-toggle__icon">+</span>
+        </button>
+
+        <div class="permit-content" id="content-permis-remorque-et-quadricycle">
+          <div class="offers-grid">
+            <article class="offer-card offer-card--featured">
+              <h3>AM (Quadricycle)</h3>
+              <p class="offer-card__price">À compléter</p>
+
+              <ul class="offer-card__list">
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--primary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-am-quadri"
+                >
+                  Imprimer les documents
+                </button>
+
+                <div class="offer-docs" id="docs-am-quadri">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="AM_QUADRICYCLE_CONTRAT.pdf"
+                  >
+                    Contrat
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="AM_QUADRICYCLE_AUTORISATION_PARENTALE.pdf"
+                  >
+                    Autorisation parentale
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="FICHE_RENSEIGNEMENTS.pdf"
+                  >
+                    Fiche de renseignements
+                  </button>
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="REGLEMENT_INTERIEUR.pdf"
+                  >
+                    Règlement intérieur
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <h3>B96</h3>
+              <p class="offer-card__price">À compléter</p>
+
+              <ul class="offer-card__list">
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-b96"
+                >
+                  Imprimer les documents
+                </button>
+
+                <div class="offer-docs" id="docs-b96">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="PERMIS_B96.pdf"
+                  >
+                    Offre
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <h3>BE</h3>
+              <p class="offer-card__price">À compléter</p>
+
+              <ul class="offer-card__list">
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+                <li>Description à compléter</li>
+              </ul>
+
+              <div class="offer-card__actions">
+                <button
+                  type="button"
+                  class="btn btn--secondary js-toggle-docs"
+                  aria-expanded="false"
+                  aria-controls="docs-be"
+                >
+                  Imprimer les documents
+                </button>
+
+                <div class="offer-docs" id="docs-be">
+                  <button
+                    type="button"
+                    class="offer-docs__item js-print-pdf"
+                    data-pdf="PERMIS_BE.pdf"
+                  >
+                    Offre
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
     </main>
 

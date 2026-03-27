@@ -326,6 +326,50 @@ button {
   border: 1px solid rgba(225, 164, 58, 0.35);
 }
 
+.offer-docs {
+  display: none;
+  margin-top: 0.8rem;
+  gap: 0.55rem;
+}
+.offer-docs.is-open {
+  display: grid;
+  animation: fadeSlideDown 0.22s ease;
+}
+.offer-docs__item {
+  width: 100%;
+  border: 1px solid rgba(21, 155, 141, 0.18);
+  background: #fff;
+  color: #159b8d;
+  border-radius: 12px;
+  padding: 0.78rem 0.95rem;
+  text-align: left;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.offer-docs__item:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 16px rgba(18, 31, 53, 0.08);
+  background: #e7f7f4;
+  border-color: rgba(21, 155, 141, 0.35);
+}
+.offer-docs__item:disabled, .offer-docs__item.is-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .other-permits {
   padding: 1.25rem 1.4rem;
 }

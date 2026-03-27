@@ -50,10 +50,7 @@ button {
   &__inner {
     max-width: 1380px;
     margin: 0 auto;
-    // background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.82) 100%);
-    // border: 1px solid rgba(223, 228, 238, 0.85);
     border-radius: 28px;
-    // box-shadow: $shadow;
     padding: 1.35rem 1.5rem;
   }
 
@@ -72,7 +69,11 @@ button {
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
-    background: linear-gradient(135deg, rgba(21, 155, 141, 0.14) 0%, rgba(240, 171, 61, 0.18) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(21, 155, 141, 0.14) 0%,
+      rgba(240, 171, 61, 0.18) 100%
+    );
     border: 1px solid rgba(21, 155, 141, 0.14);
     display: grid;
     place-items: center;
@@ -206,12 +207,10 @@ button {
 .permit-section,
 .other-permits {
   margin-top: 1.2rem;
-  // background: rgba(255, 255, 255, 0.78);
   background: #e7f7ec;
   border: 1px solid rgba(223, 228, 238, 0.85);
   backdrop-filter: blur(4px);
   border-radius: $radius-xl;
-  // box-shadow: 0 10px 26px rgba(34, 34, 34, 0.04);
   box-shadow: 4px 4px 6px rgba(34, 34, 34, 0.219);
   overflow: hidden;
 }
@@ -401,6 +400,60 @@ button {
   }
 }
 
+.offer-docs {
+  display: none;
+  margin-top: 0.8rem;
+  gap: 0.55rem;
+
+  &.is-open {
+    display: grid;
+    animation: fadeSlideDown 0.22s ease;
+  }
+
+  &__item {
+    width: 100%;
+    border: 1px solid rgba(21, 155, 141, 0.18);
+    background: #fff;
+    color: $primary;
+    border-radius: 12px;
+    padding: 0.78rem 0.95rem;
+    text-align: left;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 16px rgba(18, 31, 53, 0.08);
+      background: $primary-soft;
+      border-color: rgba(21, 155, 141, 0.35);
+    }
+
+    &:disabled,
+    &.is-disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .other-permits {
   padding: 1.25rem 1.4rem;
 
@@ -432,7 +485,6 @@ button {
     &__brand {
       align-items: center;
       flex-direction: row;
-      // flex-wrap: nowrap;
       gap: 0.9rem;
     }
 
