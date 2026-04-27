@@ -106,16 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const li = e.target.closest(".offer-card li");
     if (!li) return;
 
-    // 🔁 on récupère la liste du bloc courant
     const list = li.closest(".offer-card__list");
+    const wasHighlighted = li.classList.contains("is-highlighted");
 
-    // 🔥 on éteint tous les autres dans CE bloc uniquement
-    list.querySelectorAll("li").forEach(el => {
+    list.querySelectorAll("li").forEach((el) => {
       el.classList.remove("is-highlighted");
     });
 
-    // 💡 si déjà actif → on éteint (toggle)
-    if (!li.classList.contains("is-highlighted")) {
+    if (!wasHighlighted) {
       li.classList.add("is-highlighted");
     }
   });
