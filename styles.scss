@@ -24,6 +24,12 @@ $radius-xl: 24px;
 $radius-lg: 18px;
 $radius-md: 14px;
 
+
+::selection {
+  background-color: $secondary; 
+  color: #ffffff;           
+}
+
 * {
   box-sizing: border-box;
 }
@@ -342,10 +348,23 @@ button {
     }
   }
 
+  li {
+    cursor: pointer;
+    padding: 0.15em 0.35em;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  li.is-highlighted {
+    background-color: $secondary;
+    color: #ffffff;
+  }
+
   .detail-price {
     color: $text;
     font-weight: 700;
   }
+  
 
   &__summary {
     margin: 1rem 0 0;
@@ -362,6 +381,24 @@ button {
     padding-top: 1rem;
   }
 }
+
+.offer-card li {
+  cursor: pointer;
+  padding: 0.15em 0.35em;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.offer-card li.is-highlighted {
+  background-color: #e4473a;
+  color: #ffffff;
+}
+
+/* IMPORTANT pour que les prix deviennent blancs aussi */
+.offer-card li.is-highlighted .detail-price {
+  color: #ffffff;
+}
+
 
 .btn {
   width: 100%;

@@ -71,21 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function getPdfFileName(button) {
-    const hasManual = !!button.dataset.pdfManuelle;
-    const hasAuto = !!button.dataset.pdfAutomatique;
-    const hasSingle = !!button.dataset.pdf;
-
-    if (hasManual || hasAuto) {
+    if (button.dataset.pdfManuelle || button.dataset.pdfAutomatique) {
       return currentMode === "automatique"
         ? button.dataset.pdfAutomatique
         : button.dataset.pdfManuelle;
     }
 
-    if (hasSingle) {
-      return button.dataset.pdf;
-    }
-
-    return "";
+    return button.dataset.pdf || "";
   }
 
   function updatePdfButtons() {
@@ -107,12 +99,32 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePdfButtons();
   }
 
+  // ============================
+  // 🔥 NOUVEAU : HIGHLIGHT CLICK
+  // ============================
+  document.addEventListener("click", (e) => {
+    const li = e.target.closest(".offer-card li");
+    if (!li) return;
+
+    // 🔁 on récupère la liste du bloc courant
+    const list = li.closest(".offer-card__list");
+
+    // 🔥 on éteint tous les autres dans CE bloc uniquement
+    list.querySelectorAll("li").forEach(el => {
+      el.classList.remove("is-highlighted");
+    });
+
+    // 💡 si déjà actif → on éteint (toggle)
+    if (!li.classList.contains("is-highlighted")) {
+      li.classList.add("is-highlighted");
+    }
+  });
+
+  // ============================
+
   switchButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const selectedMode = button.dataset.mode;
-      if (!selectedMode) return;
-
-      currentMode = selectedMode;
+      currentMode = button.dataset.mode;
       refreshUI();
     });
   });
@@ -121,13 +133,12 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const fileName = getPdfFileName(button);
 
-      if (!fileName || fileName.trim() === "") {
-        alert("Aucun document disponible pour cette formule.");
+      if (!fileName) {
+        alert("Aucun document disponible.");
         return;
       }
 
-      const pdfUrl = `./pdf/${fileName}`;
-      window.open(pdfUrl, "_blank");
+      window.open(`./pdf/${fileName}`, "_blank");
     });
   });
 
@@ -142,25 +153,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const isOpen = docsBlock.classList.contains("is-open");
 
-      // ferme les autres listes de documents de la même page
       document.querySelectorAll(".offer-docs").forEach((block) => {
-        if (block !== docsBlock) {
-          block.classList.remove("is-open");
-          block.style.display = "none";
-        }
+        block.classList.remove("is-open");
+        block.style.display = "none";
       });
 
-      document.querySelectorAll(".js-toggle-docs").forEach((otherButton) => {
-        if (otherButton !== button) {
-          otherButton.setAttribute("aria-expanded", "false");
-        }
+      document.querySelectorAll(".js-toggle-docs").forEach((btn) => {
+        btn.setAttribute("aria-expanded", "false");
       });
 
-      if (isOpen) {
-        docsBlock.classList.remove("is-open");
-        docsBlock.style.display = "none";
-        button.setAttribute("aria-expanded", "false");
-      } else {
+      if (!isOpen) {
         docsBlock.classList.add("is-open");
         docsBlock.style.display = "grid";
         button.setAttribute("aria-expanded", "true");
@@ -172,54 +174,24 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.addEventListener("click", () => {
       const targetId = toggle.getAttribute("aria-controls");
       const target = document.getElementById(targetId);
-      if (!target) return;
 
       const isOpen = toggle.classList.contains("is-open");
 
-      permitToggles.forEach((otherToggle) => {
-        const otherId = otherToggle.getAttribute("aria-controls");
-        const otherTarget = document.getElementById(otherId);
-
-        otherToggle.classList.remove("is-open");
-        otherToggle.setAttribute("aria-expanded", "false");
-
-        if (otherTarget) {
-          otherTarget.classList.remove("is-open");
-        }
-
-        const icon = otherToggle.querySelector(".permit-toggle__icon");
-        if (icon) icon.textContent = "+";
+      permitToggles.forEach((t) => {
+        t.classList.remove("is-open");
+        t.setAttribute("aria-expanded", "false");
       });
 
-      // ferme toutes les listes de docs quand on change de section
-      document.querySelectorAll(".offer-docs").forEach((block) => {
-        block.classList.remove("is-open");
-        block.style.display = "none";
-      });
-
-      document.querySelectorAll(".js-toggle-docs").forEach((btn) => {
-        btn.setAttribute("aria-expanded", "false");
+      document.querySelectorAll(".permit-content").forEach((c) => {
+        c.classList.remove("is-open");
       });
 
       if (!isOpen) {
         toggle.classList.add("is-open");
         toggle.setAttribute("aria-expanded", "true");
         target.classList.add("is-open");
-
-        const icon = toggle.querySelector(".permit-toggle__icon");
-        if (icon) icon.textContent = "−";
       }
     });
-  });
-
-  // état initial propre
-  document.querySelectorAll(".offer-docs").forEach((block) => {
-    block.classList.remove("is-open");
-    block.style.display = "none";
-  });
-
-  document.querySelectorAll(".js-toggle-docs").forEach((btn) => {
-    btn.setAttribute("aria-expanded", "false");
   });
 
   refreshUI();
