@@ -3,8 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Offres DESFEUX" />
     <title>École de Conduite Desfeux - Offres permis</title>
     <link rel="icon" type="image/png" href="./images/favicon_desfeux.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -15,6 +21,25 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-mode="manuelle">
+    <div
+      id="launch-screen"
+      class="launch-screen"
+      role="status"
+      aria-label="Ouverture de l’application"
+    >
+      <div class="launch-screen__brand">
+        <img
+          class="launch-screen__logo"
+          src="./logo-ddd.png"
+          alt="David Delannoy Développement"
+        />
+        <div class="launch-screen__credit">
+          <span>Powered by</span>
+          <strong>David Delannoy Développement</strong>
+        </div>
+      </div>
+    </div>
+
     <header class="hero">
       <div class="hero__inner">
         <div class="hero__brand">

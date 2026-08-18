@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
+  const launchScreen = document.getElementById("launch-screen");
   const switchButtons = document.querySelectorAll(".transmission-switch__btn");
   const priceElements = document.querySelectorAll(".offer-card__price");
   const detailLists = document.querySelectorAll(".js-details-list");
@@ -9,6 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const docsToggleButtons = document.querySelectorAll(".js-toggle-docs");
 
   let currentMode = body.dataset.mode || "manuelle";
+
+  if (launchScreen) {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    window.setTimeout(() => {
+      launchScreen.classList.add("launch-screen--hidden");
+      launchScreen.setAttribute("aria-hidden", "true");
+
+      window.setTimeout(
+        () => launchScreen.remove(),
+        reducedMotion ? 120 : 460,
+      );
+    }, reducedMotion ? 250 : 1450);
+  }
 
   function modeKey() {
     return currentMode === "automatique" ? "automatique" : "manuelle";
