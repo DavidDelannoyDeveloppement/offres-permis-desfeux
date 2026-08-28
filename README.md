@@ -1,32 +1,41 @@
-# Offres DESFEUX — version installable DDD
+# Offres DESFEUX — version 2.0.0
 
-Cette version ajoute à l’application existante :
+Cette version synchronise l’application de présentation avec le catalogue utilisé par les applications **Devis** et **Factures**.
 
-- une installation comme application sur téléphone ou ordinateur ;
-- le logo David Delannoy Développement comme icône de l’application ;
-- un écran de lancement noir et orange ;
-- la mention « Powered by David Delannoy Développement » ;
-- les formats d’icône standard et adaptatif.
+## Contenu du catalogue
 
-## Installation dans le projet existant
+- 42 offres actives ;
+- 294 prestations après les derniers ajustements tarifaires ;
+- catégories B manuelle et automatique, AAC, conduite supervisée, CPF, AM, A1, A2, B78, B96, BE et passerelles.
 
-Copier tous les fichiers de ce dossier à la racine du projet DESFEUX et
-remplacer `index.html`, `script.js`, `styles.css` et `styles.scss` lorsqu’ils
-existent déjà.
+## Dernières modifications validées
 
-Conserver les dossiers existants `images` et `pdf` : ils ne sont pas inclus ici
-et restent nécessaires au fonctionnement du site.
+- B78 : ajout du livret numérique à 30 €, total 521 € TTC ;
+- B96 : ajout du livret numérique à 35 €, total 448 € TTC ;
+- A2 sans code : frais administratifs à 70 €, évaluation, préparation, conduite et examens à 40 €, suppression de la fabrication du permis, total 1 030 € TTC.
 
-## Fichiers ajoutés
+## Mise à jour du site existant
 
-- `manifest.webmanifest`
-- `logo-ddd.png`
-- `apple-touch-icon.png`
-- `icon-192.png`
-- `icon-512.png`
-- `icon-maskable-512.png`
+1. Sauvegarder le dossier actuellement publié.
+2. Conserver les dossiers existants `images` et `pdf` : ils ne sont pas inclus dans cette archive.
+3. Remplacer à la racine du site :
+   - `index.html`
+   - `script.js`
+   - `styles.css`
+   - `styles.scss`
+   - `manifest.webmanifest`
+   - `logo-ddd.png`
+   - `apple-touch-icon.png`
+   - `icon-192.png`
+   - `icon-512.png`
+   - `icon-maskable-512.png`
+4. Ajouter le nouveau fichier `catalogue.js` à la racine du site.
+5. Publier les fichiers puis effectuer une actualisation forcée du navigateur (`Ctrl + F5`).
 
-## Mise à jour d’une application déjà installée
+## Organisation
 
-Si l’ancienne version est déjà installée, la désinstaller puis la réinstaller
-depuis le site afin de forcer le renouvellement de l’icône et du manifest.
+Les tarifs et prestations sont maintenant regroupés dans `catalogue.js`. L’interface est générée par `script.js`, ce qui évite de dupliquer les mêmes données dans plusieurs blocs HTML.
+
+Les boutons d’impression conservent les noms des PDF déjà utilisés. Vérifier que les documents correspondants sont toujours présents dans le dossier `pdf` du site.
+
+L’écran de lancement DDD utilise la version de référence : fond noir, logo orange avec rayon de 16 px, barre de progression et distinction de couleur entre « Powered by » et « David Delannoy Développement ».
