@@ -751,7 +751,7 @@ button {
   }
 }
 
-/* Catalogue synchronisé — version 2.0.0 */
+/* Correctif catalogue 2.0.1 */
 .launch-screen__logo {
   border-radius: 16px;
   filter: drop-shadow(0 0 18px rgba(255, 121, 0, 0.24));
@@ -786,40 +786,13 @@ button {
 }
 
 @keyframes launch-progress {
-  to {
-    transform: scaleX(1);
-  }
+  to { transform: scaleX(1); }
 }
 
-.catalogue-status {
-  margin: 0.8rem 0 0;
-  color: #6d675f;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-align: right;
-}
-
-.catalogue-error {
-  margin: 1.5rem 0;
-  padding: 1rem 1.2rem;
-  border-radius: 14px;
-  background: #fff0ef;
-  color: #9a2920;
-  font-weight: 700;
-}
-
-.permit-toggle__count {
-  flex: 0 0 auto;
-  padding: 0.32rem 0.65rem;
-  border-radius: 999px;
-  background: rgba(21, 155, 141, 0.1);
-  color: #159b8d;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.offer-card.is-mode-hidden {
-  display: none;
+.offer-card h3 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #3f3f3f;
 }
 
 .offer-card__meta {
@@ -833,48 +806,9 @@ button {
   }
 }
 
-.offer-card__line-detail {
-  color: #6d675f;
-  font-size: 0.88em;
-}
-
-.offer-card__line-note {
-  display: block;
-  margin-top: 0.2rem;
-  color: #7f766d;
-  font-style: italic;
-}
-
-.offer-card li.is-highlighted {
-  .offer-card__line-detail,
-  .offer-card__line-note {
-    color: #ffffff;
-  }
-}
-
-.offer-card__note {
-  margin: 1rem 0 0;
-  padding: 0.75rem 0.85rem;
-  border-radius: 12px;
-  background: #fff7e9;
-  color: #6d5941;
-  font-size: 0.86rem;
-  line-height: 1.4;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .launch-screen__progress span {
     animation: none;
     transform: scaleX(1);
-  }
-}
-
-@media (max-width: 760px) {
-  .catalogue-status {
-    text-align: center;
-  }
-
-  .permit-toggle__count {
-    margin-left: auto;
   }
 }

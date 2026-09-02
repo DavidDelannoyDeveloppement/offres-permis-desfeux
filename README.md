@@ -1,41 +1,28 @@
-# Offres DESFEUX — version 2.0.0
+# Offres DESFEUX — version corrective 2.0.1
 
-Cette version synchronise l’application de présentation avec le catalogue utilisé par les applications **Devis** et **Factures**.
+Cette version repart du site de présentation original et conserve intégralement ses cartes commerciales :
 
-## Contenu du catalogue
+- formules Sérénité, Essentiel et Basique ;
+- différences entre boîte manuelle et automatique ;
+- tarifs particuliers des heures incluses et supplémentaires ;
+- conditions et précisions « à votre charge » ;
+- boutons et noms des documents PDF existants ;
+- présentation graphique originale.
 
-- 42 offres actives ;
-- 294 prestations après les derniers ajustements tarifaires ;
-- catégories B manuelle et automatique, AAC, conduite supervisée, CPF, AM, A1, A2, B78, B96, BE et passerelles.
+Les 15 offres absentes du site initial sont ajoutées à la suite dans `offres-complementaires.js`, sans remplacer les 27 offres déjà présentées.
 
-## Dernières modifications validées
+## Modifications tarifaires validées
 
-- B78 : ajout du livret numérique à 30 €, total 521 € TTC ;
-- B96 : ajout du livret numérique à 35 €, total 448 € TTC ;
-- A2 sans code : frais administratifs à 70 €, évaluation, préparation, conduite et examens à 40 €, suppression de la fabrication du permis, total 1 030 € TTC.
+- Levée 78 : livret numérique à 30 €, total 521 € ;
+- B96 : ajout du livret numérique à 35 €, total 448 € ;
+- A2 sans code : frais administratifs à 70 €, évaluation, plateau, conduite et examens à 40 €, suppression de la fabrication du permis, total 1 030 €.
 
-## Mise à jour du site existant
+## Installation
 
-1. Sauvegarder le dossier actuellement publié.
-2. Conserver les dossiers existants `images` et `pdf` : ils ne sont pas inclus dans cette archive.
-3. Remplacer à la racine du site :
-   - `index.html`
-   - `script.js`
-   - `styles.css`
-   - `styles.scss`
-   - `manifest.webmanifest`
-   - `logo-ddd.png`
-   - `apple-touch-icon.png`
-   - `icon-192.png`
-   - `icon-512.png`
-   - `icon-maskable-512.png`
-4. Ajouter le nouveau fichier `catalogue.js` à la racine du site.
-5. Publier les fichiers puis effectuer une actualisation forcée du navigateur (`Ctrl + F5`).
+1. Sauvegarder la version actuellement publiée.
+2. Conserver impérativement les dossiers existants `images` et `pdf`.
+3. Remplacer les fichiers de la racine du site par ceux de cette archive.
+4. Ajouter `offres-complementaires.js` à la racine.
+5. Republier puis actualiser avec `Ctrl + F5`.
 
-## Organisation
-
-Les tarifs et prestations sont maintenant regroupés dans `catalogue.js`. L’interface est générée par `script.js`, ce qui évite de dupliquer les mêmes données dans plusieurs blocs HTML.
-
-Les boutons d’impression conservent les noms des PDF déjà utilisés. Vérifier que les documents correspondants sont toujours présents dans le dossier `pdf` du site.
-
-L’écran de lancement DDD utilise la version de référence : fond noir, logo orange avec rayon de 16 px, barre de progression et distinction de couleur entre « Powered by » et « David Delannoy Développement ».
+Les dossiers `images` et `pdf` ne sont pas inclus dans l’archive. Les documents propres aux offres complémentaires ne sont proposés que lorsque leur nom de fichier est déjà connu dans le site actuel ; aucun lien PDF n’a été inventé.
