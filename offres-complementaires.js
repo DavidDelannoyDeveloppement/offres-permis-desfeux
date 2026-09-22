@@ -5,7 +5,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-101",
       "sourceId": "101",
       "sourceTitle": "CPF FORFAIT PERMIS B 10 H + EXAMEN",
-      "title": "CPF FORFAIT PERMIS B 10 H + EXAMEN",
+      "title": "CPF — Forfait permis B 10 heures avec examen",
       "category": "B",
       "financing": "CPF",
       "codeIncluded": "Non",
@@ -24,7 +24,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-103",
       "sourceId": "103",
       "sourceTitle": "CPF FORFAIT PERMIS B 20 H + CODE",
-      "title": "CPF FORFAIT PERMIS B 20 H + CODE",
+      "title": "CPF — Forfait permis B 20 heures avec code",
       "category": "B",
       "financing": "CPF",
       "codeIncluded": "Oui",
@@ -43,7 +43,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-74",
       "sourceId": "74",
       "sourceTitle": "CPF FORFAIT PERMIS B 20 H SANS CODE",
-      "title": "CPF FORFAIT PERMIS B 20 H SANS CODE",
+      "title": "CPF — Forfait permis B 20 heures sans code",
       "category": "B",
       "financing": "CPF",
       "codeIncluded": "Non",
@@ -62,7 +62,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-71",
       "sourceId": "71",
       "sourceTitle": "CPF FORFAIT PERMIS B 30 H + CODE",
-      "title": "CPF FORFAIT PERMIS B 30 H + CODE",
+      "title": "CPF — Forfait permis B 30 heures avec code",
       "category": "B",
       "financing": "CPF",
       "codeIncluded": "Oui",
@@ -81,7 +81,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-104",
       "sourceId": "104",
       "sourceTitle": "CPF FORFAIT PERMIS B 30 H SANS CODE",
-      "title": "CPF FORFAIT PERMIS B 30 H SANS CODE",
+      "title": "CPF — Forfait permis B 30 heures sans code",
       "category": "B",
       "financing": "CPF",
       "codeIncluded": "Non",
@@ -100,7 +100,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-99",
       "sourceId": "99",
       "sourceTitle": "FORFAIT CODE + AIPC",
-      "title": "FORFAIT CODE + AIPC",
+      "title": "Forfait code avec AIPC",
       "category": "Code",
       "financing": "Classique",
       "codeIncluded": "Oui",
@@ -119,7 +119,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-24",
       "sourceId": "24",
       "sourceTitle": "Passerelle B vers A1 (125 CC) 7 HEURES",
-      "title": "Passerelle B vers A1 (125 CC) 7 HEURES",
+      "title": "Passerelle B vers A1 (125 cm³) — 7 heures",
       "category": "Passerelle B vers A1",
       "financing": "Classique",
       "codeIncluded": "Non",
@@ -138,7 +138,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-52",
       "sourceId": "52",
       "sourceTitle": "Permis A1 (125 CC) + CODE",
-      "title": "Permis A1 (125 CC) + CODE",
+      "title": "Permis A1 (125 cm³) avec code",
       "category": "A1",
       "financing": "Classique",
       "codeIncluded": "Oui",
@@ -157,7 +157,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       "id": "ELGEA-55",
       "sourceId": "55",
       "sourceTitle": "Permis A1 (125 CC) sans CODE",
-      "title": "Permis A1 (125 CC) sans CODE",
+      "title": "Permis A1 (125 cm³) sans code",
       "category": "A1",
       "financing": "Classique",
       "codeIncluded": "Non",
@@ -1815,8 +1815,21 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
       ? ''
       : quantity.toLocaleString('fr-FR') + ' ' + escapeHtml(pluralUnit(line.unit, quantity)) + ' × ';
     const detail = line.detail ? ' — ' + escapeHtml(line.detail) : '';
-    return '<li>' + escapeHtml(line.label) + detail + ' : ' + multiplier +
+    return '<li>' + escapeHtml(normalizeServiceLabel(line.label)) + detail + ' : ' + multiplier +
       '<span class="detail-price">' + money(line.unitPriceTtc) + '</span></li>';
+  }
+
+  function normalizeServiceLabel(label) {
+    const preservedAcronyms = {
+      be: 'BE'
+    };
+    const normalized = String(label || '')
+      .toLocaleLowerCase('fr-FR')
+      .replace(/\b(be)\b/gi, function (acronym) {
+        return preservedAcronyms[acronym.toLowerCase()] || acronym;
+      });
+
+    return normalized.charAt(0).toLocaleUpperCase('fr-FR') + normalized.slice(1);
   }
 
   function renderDocuments(offer) {

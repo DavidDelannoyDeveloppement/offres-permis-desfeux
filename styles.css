@@ -17,37 +17,63 @@
   visibility: hidden;
   pointer-events: none;
 }
-.launch-screen__brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.launch-screen__content {
+  position: relative;
+  width: min(760px, 94vw);
+  display: grid;
+  justify-items: center;
   text-align: center;
+  animation: launch-logo-in 680ms cubic-bezier(.22, .8, .32, 1) both;
+}
+.launch-screen__signatures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+.launch-screen__signature {
+  width: 240px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
+.launch-screen__divider {
+  width: 1px;
+  height: 116px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.32), transparent);
 }
 .launch-screen__logo {
-  width: min(64vw, 280px);
-  height: auto;
-  animation: launch-logo-in 520ms ease-out both;
+  display: block;
+  object-fit: contain;
+}
+.launch-screen__logo--ddd {
+  width: 154px;
+  max-height: 108px;
+  filter: drop-shadow(0 0 18px rgba(255, 121, 0, 0.22));
+}
+.launch-screen__logo--desfeux {
+  width: 118px;
+  height: 118px;
+  background: #ffffff;
+  filter: drop-shadow(0 0 13px rgba(255, 255, 255, 0.12));
 }
 .launch-screen__credit {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin-top: 24px;
-  animation: launch-credit-in 480ms 180ms ease-out both;
-}
-.launch-screen__credit span {
-  color: #ff7900;
-  font-size: 0.625rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  margin: 12px 0 0;
+  color: #b8b8b8;
+  font-size: 12px;
+  letter-spacing: 0.03em;
 }
 .launch-screen__credit strong {
-  font-size: clamp(0.95rem, 4vw, 1.25rem);
-  font-weight: 650;
-  line-height: 1.25;
-  letter-spacing: 0.015em;
+  color: #ff7900;
+  font-weight: 800;
+}
+.launch-screen__app-name {
+  margin: 18px 0 0;
+  color: #f2f2f2;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 @keyframes launch-logo-in {
@@ -58,16 +84,6 @@
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-@keyframes launch-credit-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 @keyframes launch-screen-fallback {
@@ -81,8 +97,7 @@
   .launch-screen {
     transition-duration: 100ms;
   }
-  .launch-screen__logo,
-  .launch-screen__credit {
+  .launch-screen__content {
     animation: none;
   }
 }
@@ -628,11 +643,7 @@ button {
   }
 }
 
-/* Correctif catalogue 2.0.1 */
-.launch-screen__logo {
-  border-radius: 16px;
-  filter: drop-shadow(0 0 18px rgba(255, 121, 0, 0.24));
-}
+/* Écran de lancement commun DDD / client — version 2.1.1 */
 
 .launch-screen__progress {
   width: min(220px, 58vw);
@@ -643,27 +654,20 @@ button {
   background: rgba(255, 255, 255, 0.16);
 }
 
-.launch-screen__progress span {
+.launch-screen__progress::after {
+  content: "";
   display: block;
-  width: 100%;
+  width: 42%;
   height: 100%;
   border-radius: inherit;
   background: #ff7900;
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: launch-progress 1.45s ease-out forwards;
-}
-
-.launch-screen__credit span {
-  color: #d0d0d0;
-}
-
-.launch-screen__credit strong {
-  color: #ff7900;
+  animation: launch-progress 1.15s ease-in-out infinite;
 }
 
 @keyframes launch-progress {
-  to { transform: scaleX(1); }
+  0% { transform: translateX(-120%); }
+  50% { transform: translateX(105%); }
+  100% { transform: translateX(240%); }
 }
 
 .offer-card h3 {
@@ -684,8 +688,17 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .launch-screen__progress span {
+  .launch-screen__progress::after {
     animation: none;
-    transform: scaleX(1);
   }
+}
+
+@media (max-width: 620px) {
+  .launch-screen__content { padding: 18px; }
+  .launch-screen__signatures { flex-direction: column; gap: 18px; }
+  .launch-screen__signature { width: min(280px, 82vw); }
+  .launch-screen__divider { width: 170px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.32), transparent); }
+  .launch-screen__logo--ddd { width: 126px; max-height: 88px; }
+  .launch-screen__logo--desfeux { width: 100px; height: 100px; }
+  .launch-screen__app-name { margin-top: 16px; }
 }

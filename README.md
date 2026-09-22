@@ -1,4 +1,15 @@
-# Offres DESFEUX — version corrective 2.0.1
+# Offres DESFEUX — version 2.1.1
+
+## Correction 2.1.1
+
+- Harmonisation des majuscules et minuscules dans toutes les lignes de prestations des offres complémentaires.
+
+## Nouveautés 2.1.0
+
+- intégration du lancement commun DDD / client validé dans l’application « Disponibilités élèves » ;
+- logo DDD et mention « Powered by David Delannoy Développement » ;
+- emblème DESFEUX seul, sur fond blanc, et mention « For École de Conduite DESFEUX » ;
+- harmonisation des majuscules et minuscules dans les intitulés de toutes les offres.
 
 Cette version repart du site de présentation original et conserve intégralement ses cartes commerciales :
 

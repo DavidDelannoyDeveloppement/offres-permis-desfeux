@@ -27,17 +27,28 @@
       role="status"
       aria-label="Ouverture de l’application"
     >
-      <div class="launch-screen__brand">
-        <img
-          class="launch-screen__logo"
-          src="./logo-ddd.png"
-          alt="David Delannoy Développement"
-        />
-        <div class="launch-screen__progress" aria-hidden="true"><span></span></div>
-        <div class="launch-screen__credit">
-          <span>Powered by</span>
-          <strong>David Delannoy Développement</strong>
+      <div class="launch-screen__content">
+        <div class="launch-screen__signatures">
+          <div class="launch-screen__signature">
+            <img
+              class="launch-screen__logo launch-screen__logo--ddd"
+              src="./logo-ddd-lancement.png"
+              alt="Logo David Delannoy Développement"
+            />
+            <p class="launch-screen__credit">Powered by <strong>David Delannoy Développement</strong></p>
+          </div>
+          <span class="launch-screen__divider" aria-hidden="true"></span>
+          <div class="launch-screen__signature">
+            <img
+              class="launch-screen__logo launch-screen__logo--desfeux"
+              src="./logo-desfeux-lancement.png"
+              alt="Logo de l’École de Conduite DESFEUX"
+            />
+            <p class="launch-screen__credit">For <strong>École de Conduite DESFEUX</strong></p>
+          </div>
         </div>
+        <p class="launch-screen__app-name">Offres permis</p>
+        <span class="launch-screen__progress" aria-hidden="true"></span>
       </div>
     </div>
 
@@ -843,8 +854,8 @@
         <div class="permit-content" id="content-permis-am-levee-78">
           <div class="offers-grid">
             <article class="offer-card offer-card--featured">
-              <h3>AM (Cyclomoteur)</h3>
-              <p class="offer-card__price">330 €</p>
+              <h3>AM (cyclomoteur)</h3>
+              <p class="offer-card__price">300 €</p>
 
               <ul class="offer-card__list">
                 <li>
@@ -856,13 +867,12 @@
                   Leçon théorique (code de la route - 5h) :
                   <span class="detail-price">0 €</span>
                 </li>
-                
+
                 <li>
                   Sensibilisation aux risques routiers (1h) :
                   <span class="detail-price">0 €</span>
                 </li>
-                
-                <li>Livret numérique : <span class="detail-price">30 €</span></li>
+
                 <li>
                   Formation pratique hors circulation (4h) :
                   <span class="detail-price">100 €</span>
@@ -895,9 +905,9 @@
                 </button>
 
                 <div class="offer-docs" id="docs-am-cyclo">
-                  <!-- <button type="button" class="offer-docs__item js-print-pdf" data-pdf="PERMIS AM Cyclomoteur.pdf">
+                  <button type="button" class="offer-docs__item js-print-pdf" data-pdf="PERMIS AM Cyclomoteur.pdf">
                     Offre
-                  </button> -->
+                  </button>
                   <button
                     type="button"
                     class="offer-docs__item js-print-pdf"
@@ -920,8 +930,8 @@
             </article>
 
             <article class="offer-card">
-              <h3>AM (Quadricycle)</h3>
-              <p class="offer-card__price">450 €</p>
+              <h3>AM (quadricycle)</h3>
+              <p class="offer-card__price">400 €</p>
 
               <ul class="offer-card__list">
                 <li>
@@ -938,7 +948,6 @@
                   Sensibilisation aux risques routiers (1h) :
                   <span class="detail-price">0 €</span>
                 </li>
-                <li>Livret numérique : <span class="detail-price">30 €</span></li>
 
                 <li>
                   Formation pratique hors circulation (2h) :
@@ -947,14 +956,13 @@
 
                 <li>
                   Formation pratique en circulation (4h) :
-                  <span class="detail-price">220 €</span>
+                  <span class="detail-price">200 €</span>
                 </li>
 
                 <li>
                   Synthèse en salle avec représentant légal (1h) :
                   <span class="detail-price">0 €</span>
                 </li>
-
 
                 <li>
                   Demande de fabrication du permis (ANTS) :
@@ -973,9 +981,9 @@
                 </button>
 
                 <div class="offer-docs" id="docs-am-quadri">
-                  <!-- <button type="button" class="offer-docs__item js-print-pdf" data-pdf="PERMIS AM Quadricycle.pdf">
+                  <button type="button" class="offer-docs__item js-print-pdf" data-pdf="PERMIS AM Quadricycle.pdf">
                     Offre
-                  </button> -->
+                  </button>
                   <button
                     type="button"
                     class="offer-docs__item js-print-pdf"
@@ -1019,9 +1027,9 @@
                 </button>
 
                 <div class="offer-docs" id="docs-levee-78">
-                  <!-- <button type="button" class="offer-docs__item js-print-pdf" data-pdf="Forfait levée code 78.pdf">
+                  <button type="button" class="offer-docs__item js-print-pdf" data-pdf="Forfait levée code 78.pdf">
                     Offre
-                  </button> -->
+                  </button>
                   <button
                     type="button"
                     class="offer-docs__item js-print-pdf"
@@ -1132,7 +1140,7 @@
             </article>
 
             <article class="offer-card">
-              <h3>Permis BE + Code</h3>
+              <h3>Permis BE avec code</h3>
               <p class="offer-card__price">989 €</p>
 
               <ul class="offer-card__list">
@@ -1163,7 +1171,7 @@
                     Offre BE + Code
                   </button>
                   <button type="button" class="offer-docs__item js-print-pdf" data-pdf="PERMIS BE sans CODE.pdf">
-                    Offre BE sans Code
+                    Offre BE sans code
                   </button>
                   <button type="button" class="offer-docs__item js-print-pdf" data-pdf="PERMIS BE CPF.pdf">
                     Offre BE CPF
@@ -1197,7 +1205,7 @@
         <div class="permit-content" id="content-permis-a2-passerelle-a">
           <div class="offers-grid">
             <article class="offer-card offer-card--featured">
-              <h3>Permis A2 + Code (30 heures)</h3>
+              <h3>Permis A2 avec code (30 heures)</h3>
               <p class="offer-card__price">1 345 €</p>
 
               <ul class="offer-card__list">
@@ -1241,7 +1249,7 @@
             </article>
 
             <article class="offer-card">
-              <h3>Permis A2 sans Code (20 heures)</h3>
+              <h3>Permis A2 sans code (20 heures)</h3>
               <p class="offer-card__price">1 030 €</p>
 
               <ul class="offer-card__list">
