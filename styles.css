@@ -643,7 +643,7 @@ button {
   }
 }
 
-/* Écran de lancement commun DDD / client — version 2.1.1 */
+/* Écran de lancement commun DDD / client — version 2.1.2 */
 
 .launch-screen__progress {
   width: min(220px, 58vw);
