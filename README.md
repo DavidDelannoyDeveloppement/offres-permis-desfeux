@@ -1,4 +1,20 @@
-# Offres DESFEUX — version 2.1.1
+# Offres DESFEUX — version 2.1.4
+
+## Correction 2.1.4
+
+- Mise à jour de l’offre Reprise de dossier : deux évaluations initiales réalisées en voiture et nouveau total de 794 €.
+
+## Correction 2.1.3
+
+- Mise à jour du tarif et des prestations de la formation B96.
+- Mise à jour des deux offres BE avec financement personnel.
+- Suppression de la fabrication du permis dans l’offre BE sans code.
+
+## Correction 2.1.2
+
+- Synchronisation des offres AM cyclomoteur et quadricycle avec la base de devis.
+- Correction du permis BE avec code et de la passerelle A2 vers A.
+- Vérification des 42 totaux et des prestations associées avec la base de référence.
 
 ## Correction 2.1.1
 
