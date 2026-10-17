@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const pdfButtons = document.querySelectorAll(".js-print-pdf");
   const permitToggles = document.querySelectorAll(".permit-toggle");
   const docsToggleButtons = document.querySelectorAll(".js-toggle-docs");
+  const paymentOfferCards = document.querySelectorAll(
+    "#permis-b .offer-card, #permis-b-cs .offer-card, #permis-b-aac .offer-card, #permis-a2-passerelle-a .offer-card[data-payment-deposit]",
+  );
 
   let currentMode = body.dataset.mode || "manuelle";
 
@@ -50,6 +53,139 @@ document.addEventListener("DOMContentLoaded", () => {
         priceEl.textContent = value;
       }
     });
+  }
+
+  function parsePrice(value) {
+    const normalized = value
+      .replace(/[\s\u00a0\u202f]/g, "")
+      .replace("€", "")
+      .replace(",", ".");
+
+    const amount = Number.parseFloat(normalized);
+    return Number.isFinite(amount) ? amount : 0;
+  }
+
+  function formatPaymentAmount(amountInCents) {
+    return (
+      new Intl.NumberFormat("fr-FR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(amountInCents / 100) + "\u00a0€"
+    );
+  }
+
+  function paymentCountFor(card) {
+    const title = card.querySelector("h3")?.textContent.trim().toLocaleLowerCase("fr-FR");
+    const sectionId = card.closest(".permit-section")?.id;
+
+    if (title === "sérénité") return 6;
+    if (sectionId === "permis-b" && title === "basique") return 3;
+    return 4;
+  }
+
+  function paymentAmountsFor(card, totalInCents) {
+    const deposit = parsePrice(card.dataset.paymentDeposit || "");
+    const balanceCount = Number.parseInt(card.dataset.paymentBalanceCount, 10);
+    const depositInCents = Math.round(deposit * 100);
+
+    if (
+      depositInCents > 0 &&
+      depositInCents < totalInCents &&
+      Number.isInteger(balanceCount) &&
+      balanceCount > 0
+    ) {
+      const balanceInCents = totalInCents - depositInCents;
+      const regularBalance = Math.floor(balanceInCents / balanceCount);
+      const lastBalance = balanceInCents - regularBalance * (balanceCount - 1);
+
+      return [
+        depositInCents,
+        ...Array.from({ length: balanceCount }, (_, index) =>
+          index === balanceCount - 1 ? lastBalance : regularBalance,
+        ),
+      ];
+    }
+
+    const count = paymentCountFor(card);
+    const isSerenity =
+      card.querySelector("h3")?.textContent.trim().toLocaleLowerCase("fr-FR") ===
+      "sérénité";
+    const regularAmount = isSerenity
+      ? Math.round(totalInCents / count / 100) * 100
+      : Math.floor(totalInCents / count);
+    const lastAmount = totalInCents - regularAmount * (count - 1);
+
+    return Array.from({ length: count }, (_, index) =>
+      index === count - 1 ? lastAmount : regularAmount,
+    );
+  }
+
+  function paymentLabel(card, index, count, isSerenity) {
+    const hasDepositPlan = Boolean(card.dataset.paymentDeposit);
+
+    if (isSerenity && index === count - 1) {
+      return "Avant examen, suivant besoins réels";
+    }
+
+    if (index === 0) {
+      return hasDepositPlan
+        ? "Chèque d'arrhes à l'inscription"
+        : "1re échéance (arrhes à l'inscription)";
+    }
+
+    if (hasDepositPlan) return `${index + 1}e échéance`;
+    return `${index + 1}e échéance`;
+  }
+
+  function createPaymentSchedules() {
+    paymentOfferCards.forEach((card) => {
+      if (card.querySelector(".offer-card__payments")) return;
+
+      const details = card.querySelector(".offer-card__list");
+      if (!details) return;
+
+      const paymentBlock = document.createElement("section");
+      paymentBlock.className = "offer-card__payments";
+      paymentBlock.setAttribute("aria-label", "Modalités de paiement");
+      paymentBlock.innerHTML =
+        '<h4>Modalités de paiement</h4><ol class="offer-card__payment-list"></ol>';
+      details.insertAdjacentElement("afterend", paymentBlock);
+    });
+  }
+
+  function updatePaymentSchedules() {
+    paymentOfferCards.forEach((card) => {
+      const price = card.querySelector(".offer-card__price");
+      const paymentList = card.querySelector(".offer-card__payment-list");
+      if (!price || !paymentList) return;
+
+      const totalInCents = Math.round(parsePrice(price.textContent) * 100);
+      const paymentAmounts = paymentAmountsFor(card, totalInCents);
+      const count = paymentAmounts.length;
+      const isSerenity =
+        card.querySelector("h3")?.textContent.trim().toLocaleLowerCase("fr-FR") ===
+        "sérénité";
+
+      paymentList.innerHTML = paymentAmounts.map((amount, index) => {
+        return (
+          "<li><span>" +
+          paymentLabel(card, index, count, isSerenity) +
+          '</span><strong class="payment-amount">' +
+          formatPaymentAmount(amount) +
+          "</strong></li>"
+        );
+      }).join("");
+    });
+  }
+
+  function keepEuroSymbolsWithAmounts(root = document) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node = walker.nextNode();
+
+    while (node) {
+      node.nodeValue = node.nodeValue.replace(/[ \t]+€/g, "\u00a0€");
+      node = walker.nextNode();
+    }
   }
 
   function updateDetails() {
@@ -113,14 +249,16 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePrices();
     updateDetails();
     updateSummaries();
+    updatePaymentSchedules();
     updatePdfButtons();
+    keepEuroSymbolsWithAmounts();
   }
 
   // ============================
   // 🔥 NOUVEAU : HIGHLIGHT CLICK
   // ============================
   document.addEventListener("click", (e) => {
-    const li = e.target.closest(".offer-card li");
+    const li = e.target.closest(".offer-card__list li");
     if (!li) return;
 
     const list = li.closest(".offer-card__list");
@@ -209,5 +347,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  createPaymentSchedules();
   refreshUI();
 });

@@ -1784,7 +1784,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
     return amount.toLocaleString('fr-FR', {
       minimumFractionDigits: decimals,
       maximumFractionDigits: 2
-    }) + ' €';
+    }) + '\u00a0€';
   }
 
   function pluralUnit(unit, quantity) {
