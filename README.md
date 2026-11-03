@@ -1,4 +1,15 @@
-# Offres DESFEUX — version 2.1.9
+# Offres DESFEUX — version 2.2.1
+
+## Correction 2.2.1
+
+- Remplacement de la pastille « Rappel partenariat CIC » par « Partenariat CIC » accompagné du logo officiel.
+- Ajout du fichier autonome `logo-cic.svg` à la racine de l’application.
+
+## Nouveautés 2.2.0
+
+- Mise à jour de l’offre AM cyclomoteur : nouveau total de 350 € et prestations actualisées.
+- Mise à jour des prestations de l’offre AM quadricycle, avec maintien du total à 450 €.
+- Ajout du rappel inactif « Rappel partenariat CIC » après les modalités de paiement des offres B, B CS et B AAC.
 
 ## Correction 2.1.9
 

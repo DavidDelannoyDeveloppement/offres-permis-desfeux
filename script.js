@@ -145,10 +145,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!details) return;
 
       const paymentBlock = document.createElement("section");
+      const permitSectionId = card.closest(".permit-section")?.id;
+      const showCicReminder = ["permis-b", "permis-b-cs", "permis-b-aac"].includes(
+        permitSectionId,
+      );
       paymentBlock.className = "offer-card__payments";
       paymentBlock.setAttribute("aria-label", "Modalités de paiement");
       paymentBlock.innerHTML =
-        '<h4>Modalités de paiement</h4><ol class="offer-card__payment-list"></ol>';
+        '<h4>Modalités de paiement</h4><ol class="offer-card__payment-list"></ol>' +
+        (showCicReminder
+          ? '<div class="offer-card__cic-reminder" role="note"><img src="./logo-cic.svg" alt="Logo CIC">Partenariat CIC</div>'
+          : "");
       details.insertAdjacentElement("afterend", paymentBlock);
     });
   }

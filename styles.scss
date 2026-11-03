@@ -439,6 +439,30 @@ button {
   color: #159b8d;
   white-space: nowrap;
 }
+.offer-card__cic-reminder {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin-top: 0.85rem;
+  padding: 0.42rem 0.72rem;
+  border: 1px solid #c7d0e3;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 34, 139, 0.08);
+  color: #0f228b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+  pointer-events: none;
+  user-select: none;
+}
+.offer-card__cic-reminder img {
+  display: block;
+  flex: 0 0 auto;
+  width: 3rem;
+  height: auto;
+}
 .offer-card__summary {
   margin: 1rem 0 0;
   padding: 0.9rem;
