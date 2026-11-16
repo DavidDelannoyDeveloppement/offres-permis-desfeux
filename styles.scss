@@ -533,6 +533,7 @@ button {
   animation: fadeSlideDown 0.22s ease;
 }
 .offer-docs__item {
+  display: block;
   width: 100%;
   border: 1px solid rgba(21, 155, 141, 0.18);
   background: #fff;
@@ -541,6 +542,10 @@ button {
   padding: 0.78rem 0.95rem;
   text-align: left;
   font-weight: 700;
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: none;
+  box-sizing: border-box;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }

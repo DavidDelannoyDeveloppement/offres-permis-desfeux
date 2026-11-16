@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const permitToggles = document.querySelectorAll(".permit-toggle");
   const docsToggleButtons = document.querySelectorAll(".js-toggle-docs");
   const paymentOfferCards = document.querySelectorAll(
-    "#permis-b .offer-card, #permis-b-cs .offer-card, #permis-b-aac .offer-card, #permis-a2-passerelle-a .offer-card[data-payment-deposit]",
+    "#permis-b .offer-card, #permis-b-cs .offer-card, #permis-b-aac .offer-card, #permis-a2-passerelle-a .offer-card[data-payment-count]",
   );
 
   let currentMode = body.dataset.mode || "manuelle";
@@ -84,29 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function paymentAmountsFor(card, totalInCents) {
-    const deposit = parsePrice(card.dataset.paymentDeposit || "");
-    const balanceCount = Number.parseInt(card.dataset.paymentBalanceCount, 10);
-    const depositInCents = Math.round(deposit * 100);
-
-    if (
-      depositInCents > 0 &&
-      depositInCents < totalInCents &&
-      Number.isInteger(balanceCount) &&
-      balanceCount > 0
-    ) {
-      const balanceInCents = totalInCents - depositInCents;
-      const regularBalance = Math.floor(balanceInCents / balanceCount);
-      const lastBalance = balanceInCents - regularBalance * (balanceCount - 1);
-
-      return [
-        depositInCents,
-        ...Array.from({ length: balanceCount }, (_, index) =>
-          index === balanceCount - 1 ? lastBalance : regularBalance,
-        ),
-      ];
-    }
-
-    const count = paymentCountFor(card);
+    const configuredCount = Number.parseInt(card.dataset.paymentCount, 10);
+    const count = Number.isInteger(configuredCount) && configuredCount > 0
+      ? configuredCount
+      : paymentCountFor(card);
     const isSerenity =
       card.querySelector("h3")?.textContent.trim().toLocaleLowerCase("fr-FR") ===
       "sérénité";
@@ -121,19 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function paymentLabel(card, index, count, isSerenity) {
-    const hasDepositPlan = Boolean(card.dataset.paymentDeposit);
-
     if (isSerenity && index === count - 1) {
       return "Avant examen, suivant besoins réels";
     }
 
     if (index === 0) {
-      return hasDepositPlan
-        ? "Chèque d'arrhes à l'inscription"
-        : "1re échéance (arrhes à l'inscription)";
+      return "1re échéance (arrhes à l'inscription)";
     }
 
-    if (hasDepositPlan) return `${index + 1}e échéance`;
     return `${index + 1}e échéance`;
   }
 
