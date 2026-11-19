@@ -1737,7 +1737,7 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
   const sections = [
     {
       id: 'offres-cpf-b',
-      title: 'Permis B financés par CPF',
+      title: 'Permis B — financement CPF',
       offerIds: ['ELGEA-101', 'ELGEA-103', 'ELGEA-74', 'ELGEA-71', 'ELGEA-104']
     },
     {
@@ -1747,13 +1747,23 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
     },
     {
       id: 'offres-a1',
-      title: 'Permis A1 — 125 cm³',
+      title: 'Permis A1 — financement personnel',
       offerIds: ['ELGEA-52', 'ELGEA-55']
     },
     {
-      id: 'offres-cpf-moto-remorque',
-      title: 'Offres moto et remorque complémentaires',
-      offerIds: ['ELGEA-35', 'CPF-BE-SANS-CODE', 'CPF-BE-AVEC-CODE', 'CPF-A2-AVEC-CODE', 'CPF-A2-SANS-CODE']
+      id: 'offres-be-personnel',
+      title: 'Permis BE — financement personnel',
+      offerIds: ['ELGEA-35']
+    },
+    {
+      id: 'offres-be-cpf',
+      title: 'Permis BE — financement CPF',
+      offerIds: ['CPF-BE-SANS-CODE', 'CPF-BE-AVEC-CODE']
+    },
+    {
+      id: 'offres-a2-cpf',
+      title: 'Permis A2 — financement CPF',
+      offerIds: ['CPF-A2-AVEC-CODE', 'CPF-A2-SANS-CODE']
     },
     {
       id: 'offres-retour-passerelle',
@@ -1835,12 +1845,19 @@ window.DESFEUX_OFFRES_COMPLEMENTAIRES = {
     const offerLines = catalogue.lines
       .filter(function (line) { return line.offerId === offer.id; })
       .sort(function (a, b) { return a.order - b.order; });
+    const financing = offer.financing === 'CPF' ? 'cpf' : 'personnel';
+    const family = offer.id === 'ELGEA-100' ? 'other' : (offer.category === 'B' ? 'b' :
+      (offer.category === 'BE' ? 'remorque' :
+      (offer.category === 'A1' || offer.category === 'A2' || offer.category === 'Passerelle B vers A1' ? 'moto' : 'other')));
+    const transmission = offer.transmission === 'Manuelle' ? 'manuelle' : 'none';
     const badges = [
-      offer.financing === 'CPF' ? '<span class="offer-card__badge">CPF</span>' : '',
+      '<span class="offer-card__badge' + (financing === 'personnel' ? ' offer-card__badge--personal' : '') + '">' +
+        (financing === 'cpf' ? 'Financement CPF' : 'Financement personnel') + '</span>',
       offer.transmission !== 'Sans objet' ? '<span class="offer-card__badge offer-card__badge--soft">' + escapeHtml(offer.transmission) + '</span>' : ''
     ].join('');
 
-    return '<article class="offer-card' + (index === 0 ? ' offer-card--featured' : '') + '">' +
+    return '<article class="offer-card' + (index === 0 ? ' offer-card--featured' : '') + '"' +
+      ' data-permit-family="' + family + '" data-financing="' + financing + '" data-transmission="' + transmission + '">' +
       (badges ? '<div class="offer-card__meta">' + badges + '</div>' : '') +
       '<h3>' + escapeHtml(offer.title) + '</h3>' +
       '<p class="offer-card__price">' + money(offer.totalTtc) + '</p>' +

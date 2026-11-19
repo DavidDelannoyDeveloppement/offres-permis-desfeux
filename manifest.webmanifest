@@ -1,7 +1,7 @@
 {
-  "name": "École de Conduite DESFEUX – Offres permis",
-  "short_name": "Offres DESFEUX",
-  "description": "Consultation des formules par catégorie de permis et type de boîte.",
+  "name": "École de Conduite DESFEUX – Sélecteur d’offres",
+  "short_name": "Sélecteur DESFEUX",
+  "description": "Sélection guidée des formules par permis, type de boîte et financement.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

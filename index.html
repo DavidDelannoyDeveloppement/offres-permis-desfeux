@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#050505" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Offres DESFEUX" />
-    <title>École de Conduite Desfeux - Offres permis</title>
+    <meta name="apple-mobile-web-app-title" content="Sélecteur DESFEUX" />
+    <title>Sélecteur d’offres DESFEUX</title>
     <link rel="icon" type="image/png" href="./images/favicon_desfeux.png" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="manifest" href="./manifest.webmanifest" />
@@ -71,35 +71,63 @@
               <span class="h1-vert">Desfeux</span>
             </h1>
             <p class="hero__text">
-              Consultation des formules par catégorie de permis et type de boîte.
+              Trouvez la formule adaptée à votre projet, sans chercher dans tout le catalogue.
             </p>
-          </div>
-        </div>
-
-        <div class="hero__controls">
-          <p class="hero__controls-label">Type de boîte</p>
-
-          <div class="transmission-switch" aria-label="Choix de la boîte de vitesse">
-            <button
-              class="transmission-switch__btn is-active"
-              type="button"
-              data-mode="manuelle"
-            >
-              Manuelle
-            </button>
-            <button
-              class="transmission-switch__btn"
-              type="button"
-              data-mode="automatique"
-            >
-              Automatique
-            </button>
           </div>
         </div>
       </div>
     </header>
 
     <main class="page-content">
+      <section class="offer-finder" aria-labelledby="offer-finder-title">
+        <div class="offer-finder__heading">
+          <div>
+            <p class="offer-finder__eyebrow">Votre projet</p>
+            <h2 id="offer-finder-title">Quelle formation recherchez-vous&nbsp;?</h2>
+            <p>Répondez à quelques questions : seules les offres compatibles seront affichées.</p>
+          </div>
+          <button type="button" class="offer-finder__all" id="finder-show-all">Voir tout le catalogue</button>
+        </div>
+
+        <div class="offer-finder__step" data-finder-step="permit">
+          <p class="offer-finder__label"><span>1</span> Type de permis</p>
+          <div class="offer-finder__choices" role="group" aria-label="Type de permis">
+            <button type="button" class="finder-choice" data-filter-permit="b">Permis B</button>
+            <button type="button" class="finder-choice" data-filter-permit="moto">Permis moto</button>
+            <button type="button" class="finder-choice" data-filter-permit="remorque">Permis remorque</button>
+            <button type="button" class="finder-choice" data-filter-permit="am">Permis AM / BSR</button>
+            <button type="button" class="finder-choice" data-filter-permit="other">Code et autres</button>
+          </div>
+        </div>
+
+        <div class="offer-finder__step is-contextual" id="finder-transmission-step" hidden>
+          <p class="offer-finder__label"><span>2</span> Type de boîte</p>
+          <div class="offer-finder__choices" role="group" aria-label="Type de boîte">
+            <button type="button" class="finder-choice" data-filter-transmission="manuelle">Boîte manuelle</button>
+            <button type="button" class="finder-choice" data-filter-transmission="automatique">Boîte automatique</button>
+          </div>
+        </div>
+
+        <div class="offer-finder__step is-contextual" id="finder-financing-step" hidden>
+          <p class="offer-finder__label"><span id="finder-financing-number">2</span> Financement</p>
+          <div class="offer-finder__choices" role="group" aria-label="Mode de financement">
+            <button type="button" class="finder-choice" data-filter-financing="personnel">Financement personnel</button>
+            <button type="button" class="finder-choice" data-filter-financing="cpf">Financement CPF</button>
+          </div>
+        </div>
+
+        <div class="offer-finder__footer">
+          <p class="offer-finder__status" id="finder-status" aria-live="polite">Commencez par choisir le type de permis.</p>
+          <button type="button" class="offer-finder__reset" id="finder-reset" hidden>Modifier mes choix</button>
+        </div>
+      </section>
+
+      <div class="finder-empty" id="finder-empty">
+        <strong>Les offres correspondant à vos choix apparaîtront ici.</strong>
+        <span>Vous pourrez ensuite consulter les prestations, les échéances et les documents.</span>
+      </div>
+
+      <div id="catalogue-sections">
       <!-- ========================================= -->
       <!-- PERMIS B TRADITIONNEL -->
       <!-- ========================================= -->
@@ -110,7 +138,7 @@
           aria-expanded="false"
           aria-controls="content-permis-b"
         >
-          <span class="permit-toggle__title">Permis B traditionnel</span>
+          <span class="permit-toggle__title">Permis B traditionnel — financement personnel</span>
           <span class="permit-toggle__icon">+</span>
         </button>
 
@@ -334,7 +362,7 @@
           aria-expanded="false"
           aria-controls="content-permis-b-cs"
         >
-          <span class="permit-toggle__title">Permis B CS — conduite supervisée</span>
+          <span class="permit-toggle__title">Permis B CS — financement personnel</span>
           <span class="permit-toggle__icon">+</span>
         </button>
 
@@ -562,7 +590,7 @@
           aria-expanded="false"
           aria-controls="content-permis-b-aac"
         >
-          <span class="permit-toggle__title">Permis B AAC — conduite accompagnée</span>
+          <span class="permit-toggle__title">Permis B AAC — financement personnel</span>
           <span class="permit-toggle__icon">+</span>
         </button>
 
@@ -798,7 +826,7 @@
           aria-expanded="false"
           aria-controls="content-permis-am-levee-78"
         >
-          <span class="permit-toggle__title">Permis AM et Levée 78</span>
+          <span class="permit-toggle__title">Permis AM et Levée 78 — financement personnel</span>
           <span class="permit-toggle__icon">+</span>
         </button>
 
@@ -959,7 +987,7 @@
           aria-expanded="false"
           aria-controls="content-permis-remorque-reprise"
         >
-          <span class="permit-toggle__title">Reprise de dossier, B96 et BE</span>
+          <span class="permit-toggle__title">Reprise de dossier, B96 et BE — financement personnel</span>
           <span class="permit-toggle__icon">+</span>
         </button>
 
@@ -1088,7 +1116,7 @@
           aria-expanded="false"
           aria-controls="content-permis-a2-passerelle-a"
         >
-          <span class="permit-toggle__title">Permis A2 et passerelle A</span>
+          <span class="permit-toggle__title">Permis A2 et passerelle A — financement personnel</span>
           <span class="permit-toggle__icon">+</span>
         </button>
 
@@ -1225,6 +1253,7 @@
       </section>
 
       <div id="additional-offers-root"></div>
+      </div>
     </main>
 
     <script src="offres-complementaires.js"></script>

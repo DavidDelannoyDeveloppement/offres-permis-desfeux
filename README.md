@@ -1,4 +1,20 @@
-# Offres DESFEUX — version 2.3.1
+# Proposition DESFEUX — sélecteur guidé d’offres
+
+Cette proposition conserve le catalogue et l’identité visuelle de la version 2.3.1, mais place un parcours de sélection en tête de page.
+
+## Parcours client
+
+- Choix du projet : permis B, moto, remorque, AM / BSR, code et autres prestations.
+- Pour le permis B, choix entre boîte manuelle et boîte automatique.
+- Choix explicite entre financement personnel et financement CPF.
+- Affichage uniquement des offres compatibles, avec possibilité de revenir au catalogue complet.
+- Désactivation automatique d’un mode de financement lorsqu’aucune offre correspondante n’existe.
+
+## Clarification des financements
+
+- Chaque carte indique désormais « Financement personnel » ou « Financement CPF ».
+- Les offres BE sont réparties dans deux rubriques distinctes.
+- Les quatre formules BE sont conservées : personnel avec code à 1 190 €, personnel sans code à 1 070 €, CPF avec code à 1 260 € et CPF sans code à 1 190 €.
 
 ## Correction 2.3.1
 
@@ -18,7 +34,9 @@
 ## Paiements échelonnés
 
 - Les modalités des permis B sont recalculées depuis le prix total actuellement affiché, y compris lors du passage entre boîte manuelle et automatique.
-- Les offres Sérénité utilisent six échéances : les cinq premières sont identiques et arrondies à l'euro, puis la dernière est ajustée exactement au total.
+- Pour toutes les offres concernées, les échéances précédant la dernière sont identiques et arrondies à l'euro supérieur : les arrhes bénéficient donc toujours de l'arrondi supérieur.
+- La dernière échéance est ajustée automatiquement afin que la somme corresponde exactement au prix total, sans centime résiduel ni dépassement.
+- Les offres Sérénité utilisent six échéances.
 - Les autres offres B utilisent quatre échéances, sauf le permis B traditionnel Basique qui conserve trois échéances.
 - Les deux offres A2 principales utilisent trois échéances calculées sur le prix total, arrhes comprises.
 
